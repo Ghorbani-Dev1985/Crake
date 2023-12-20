@@ -1,12 +1,27 @@
 import React from "react";
 import { BiPlayCircle } from "react-icons/bi";
 import Logo from "./../../assets/Images/logo.png";
+import ShapeOne from "./../../assets/Images/shape1.png";
+import ShapeTwo from "./../../assets/Images/shape2.png";
+import ShapeThree from "./../../assets/Images/shape3.png";
+import ShapeFour from "./../../assets/Images/shape4.png";
+import MainImage from "./../../assets/Images/main-image.png";
 import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="bg-mainColor text-white relative">
+    <header className="bg-mainColor text-white relative min-h-screen">
       <div className="container py-8">
+        <img
+          src={ShapeOne}
+          alt="ghorbani-dev.ir"
+          className="absolute left-10 top-25 animate-moveBounce"
+        />
+        <img
+          src={ShapeTwo}
+          alt="ghorbani-dev.ir"
+          className="absolute right-0 top-20 animate-moveBounce"
+        />
         {/* Logo & Nav */}
         <div className="flex-between">
           <div>
@@ -41,8 +56,14 @@ function Header() {
           </div>
         </div>
         {/* Img & Text */}
-        <div className="flex-between my-10">
-          <div className="flex flex-1"></div>
+        <div className="flex-between min-h-screen z-10 relative">
+          <div className="flex flex-1">
+            <img
+              src={MainImage}
+              alt="ghorbani-dev.ir"
+              className="object-cover"
+            />
+          </div>
           <div className="flex flex-1 flex-col">
             <h1 className="font-MorabbaBold text-xl md:text-5xl/[5rem] mb-4">
               استراتژی کسب و کار خود را در یک مکان حرفه ای مدیریت کنید
@@ -62,20 +83,36 @@ function Header() {
                 <span class="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-secondColor transition-all duration-200 group-hover:h-full"></span>
                 شروع کنید
               </Link>
-              <button class="btn flex-center gap-4 bg-transparent text-white border-none shadow-none hover:bg-transparent group" onclick="my_modal_2.showModal()">مشاهده ویدیو <BiPlayCircle className="text-3xl group-hover:text-secondColor transition-colors" /></button>
-<dialog id="my_modal_2" class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg">Hello!</h3>
-    <p class="py-4">Press ESC key or click outside to close</p>
-  </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
+              <button
+                class="btn flex-center gap-4 bg-transparent text-white border-none shadow-none hover:bg-transparent group"
+                onclick="my_modal_2.showModal()"
+              >
+                مشاهده ویدیو{" "}
+                <BiPlayCircle className="text-3xl group-hover:text-secondColor transition-colors" />
+              </button>
+              <dialog id="my_modal_2" class="modal">
+                <div class="modal-box">
+                  <h3 class="font-bold text-lg">Hello!</h3>
+                  <p class="py-4">Press ESC key or click outside to close</p>
+                </div>
+                <form method="dialog" class="modal-backdrop">
+                  <button>close</button>
+                </form>
+              </dialog>
             </div>
           </div>
         </div>
-        <div className="w-36 h-36 bg-gray-200/50 absolute left-5 bottom-2 rounded-full animate-moveBounce"></div>
+        <img
+          src={ShapeFour}
+          alt="ghorbani-dev.ir"
+          className="absolute left-48 bottom-72 z-0 opacity-30 animate-fullRotate"
+        />
+        <img
+          src={ShapeThree}
+          alt="ghorbani-dev.ir"
+          className="absolute right-8 bottom-30 animate-moveBounce"
+        />
+        <div className="w-36 h-36 bg-gray-200/50 absolute left-5 bottom-30 rounded-full animate-moveBounce"></div>
       </div>
     </header>
   );

@@ -33,12 +33,17 @@ module.exports = {
       },
       animation: {
         'moveBounce': 'moveBounce 5s linear infinite',
+        'fullRotate' : 'fullRotate 40s linear infinite'
       },
       keyframes: {
         moveBounce: {
           '0%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(20px)' },
            '100%' : {transform: 'translateY(0px)'}
+        },
+        fullRotate: {
+          'from' : {transform : 'rotate(0deg)'},
+          'to' : {transform : 'rotate(360deg)'}
         }
       },
       boxShadow: {
