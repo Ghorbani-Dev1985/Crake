@@ -65,7 +65,7 @@ function Header() {
             />
           </div>
           <div className="flex flex-1 flex-col">
-            <h1 className="font-MorabbaBold text-xl md:text-5xl/[5rem] mb-4">
+            <h1 className="font-MorabbaBold text-xl md:text-5xl/[5rem] mb-4 text-center">
               استراتژی کسب و کار خود را در یک مکان حرفه ای مدیریت کنید
             </h1>
             <p className="max-w-lg mx-auto text-center leading-8">
@@ -107,7 +107,7 @@ function Header() {
         <img
           src={ShapeFour}
           alt="ghorbani-dev.ir"
-          className="absolute left-72 bottom-72 z-0 opacity-10 animate-fullRotate"
+          className="absolute left-72 bottom-72 z-0 opacity-10 animate-fullRotate rounded-full"
         />
         <img
           src={ShapeThree}
@@ -121,3 +121,8 @@ function Header() {
 }
 
 export default Header;
+
+// defaultProps when props unavailable
+// Header.defaultProps = {
+//   image: './image.jpg'
+// }
