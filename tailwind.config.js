@@ -29,6 +29,17 @@ module.exports = {
           900: "#634832",
         },
         mainColor: '#13c4a1',
+        secondColor: '#FF8A73'
+      },
+      animation: {
+        'moveBounce': 'moveBounce 5s linear infinite',
+      },
+      keyframes: {
+        moveBounce: {
+          '0%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(20px)' },
+           '100%' : {transform: 'translateY(0px)'}
+        }
       },
       boxShadow: {
         normal: "0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
