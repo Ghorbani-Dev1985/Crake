@@ -28,7 +28,7 @@ module.exports = {
           600: "#967259",
           900: "#634832",
         },
-        mainColor: '#13c4a1',
+        mainColor: '#5b21b6',
         secondColor: '#FF8A73'
       },
       animation: {
