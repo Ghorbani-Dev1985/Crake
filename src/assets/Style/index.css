@@ -43,7 +43,13 @@
     @apply p-0 m-0 box-border;
   }
   body {
-    @apply bg-gray-100 dark:bg-zinc-800 font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-orange-200 dark:scrollbar-thumb-gray-700 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
+    @apply dark:bg-zinc-800 font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-orange-200 dark:scrollbar-thumb-gray-700 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
+  }
+  a{
+    @apply relative inline-block
+  }
+  a:hover{
+    @apply text-amber-300 transition-colors before:content-[''] before:absolute before:top-2 before:-right-3 before:w-2 before:h-2 before:rounded-full before:bg-amber-300
   }
 }
 
@@ -97,6 +103,9 @@
   }
   .flex-center{
     @apply flex justify-center items-center
+  }
+  .flex-between{
+    @apply flex justify-between items-center
   }
 }
 

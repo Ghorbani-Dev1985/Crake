@@ -28,6 +28,7 @@ module.exports = {
           600: "#967259",
           900: "#634832",
         },
+        mainColor: '#13c4a1',
       },
       boxShadow: {
         normal: "0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
@@ -169,6 +170,9 @@ module.exports = {
       'xl': '1280px',
     }
   },
+  daisyui: {
+    themes: ["light"],
+  },
   plugins: [
     require("@tailwindcss/forms"),
     function ({ addVariant }) {
@@ -176,5 +180,6 @@ module.exports = {
       addVariant("child-hover", "& > *:hover");
     },
     require("tailwind-scrollbar"),
+    require("daisyui"),
   ],
 };
