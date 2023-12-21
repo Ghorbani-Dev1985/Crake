@@ -28,12 +28,13 @@ module.exports = {
           600: "#967259",
           900: "#634832",
         },
-        mainColor: '#5b21b6',
+        mainColor: '#a855f7',
         secondColor: '#FF8A73'
       },
       animation: {
         'moveBounce': 'moveBounce 5s linear infinite',
-        'fullRotate' : 'fullRotate 40s linear infinite'
+        'fullRotate' : 'fullRotate 40s linear infinite',
+        'moveBgLine' : 'moveBgLine 2s linear infinite',
       },
       keyframes: {
         moveBounce: {
@@ -44,7 +45,11 @@ module.exports = {
         fullRotate: {
           'from' : {transform : 'rotate(0deg)'},
           'to' : {transform : 'rotate(360deg)'}
-        }
+        },
+        moveBgLine: {
+          'from' : {transform : 'translateX(0)'},
+           'to' : {transform : 'translateX(80px)'},
+        },
       },
       boxShadow: {
         normal: "0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
