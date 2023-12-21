@@ -1,4 +1,5 @@
 import React from 'react'
+import OurFeatureCards from './OurFeatureCards/OurFeatureCards'
 
 function OurFeatures() {
   return (
@@ -9,6 +10,7 @@ function OurFeatures() {
            <p className="w-20 h-1 bg-mainColor my-5 mx-auto relative overflow-hidden rounded-md before:content-[''] before:absolute before:top-0 before:left-0 before:w-[5px] before:h-full before:bg-white before:animate-moveBgLine"></p>
            <p>در این قسمت می توانید بخش کوچکی از امکانات و ویژگی های قابل ارائه ما را ملاحظه بفرمایید.</p>
         </div>
+        <OurFeatureCards />
        </div>
     </section>
   )
