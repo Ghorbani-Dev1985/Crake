@@ -3,13 +3,13 @@ import { BiCheckDouble , BiCctv , BiGridAlt , BiLock , BiMouseAlt , BiWind} from
 
 function OurFeatureCards() {
   return (
-    <section className='grid grid-cols-1 md:grid-cols-3 grid-rows-3 gap-8 my-8'>
+    <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-3 gap-8 my-8 relative z-30'>
        <OurFeatureCard Icon={<BiCheckDouble />} Title="دسترسی سریع" Description="در زمان بسیار کوتاه دسترسی سریعی به امکانات داشته باشید تا بتوانید بهره وری بهتری را تجربه کنید"/>
-       <OurFeatureCard Icon={<BiGridAlt />} Title=" مدیریت راحت" Description=" مدیریت راحت و"/>
-       <OurFeatureCard Icon={<BiLock />} Title="  امنیتی" Description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
-       <OurFeatureCard Icon={<BiCctv />} Title="  فیلتر دوربین" Description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
-       <OurFeatureCard Icon={<BiWind />} Title="  سریع و بهینه شده" Description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
-       <OurFeatureCard Icon={<BiMouseAlt />} Title="  درگ و دراپ" Description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
+       <OurFeatureCard Icon={<BiGridAlt />} Title=" مدیریت راحت" Description=" مدیریت راحت و حرفه ای و تجربه یک ابزار مدیریتی مدرن تا بتوانید عملکرد مناسبی داشته باشید"/>
+       <OurFeatureCard Icon={<BiLock />} Title="  امنیتی" Description=" اجرای کلیه موارد امنیتی و زیر ساختی جهت برقراری بستری امن برای اجرای پروژه ها شما"/>
+       <OurFeatureCard Icon={<BiCctv />} Title="  فیلتر دوربین" Description=" استفاده از پیشرفته ترین دوربین های روز برای ساختارمند شدن و بهینه تر شدن"/>
+       <OurFeatureCard Icon={<BiWind />} Title="  سریع و بهینه شده" Description="  محبوبیت ما در اجرای سریع و بهینه است زیرا تجربه ما در اجرای این امر چاره ساز است"/>
+       <OurFeatureCard Icon={<BiMouseAlt />} Title="  درگ و دراپ" Description="  با یک درگ و دراپ ساخته تنظیمات خود را بهینه نمایید و نتیجه آنرا مشاهده نمایید"/>
     </section>
   )
 }
