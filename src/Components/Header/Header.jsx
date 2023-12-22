@@ -7,6 +7,10 @@ import ShapeThree from "./../../assets/Images/shape3.png";
 import ShapeFour from "./../../assets/Images/shape4.png";
 import MainImage from "./../../assets/Images/main-image.png";
 import { Link } from "react-router-dom";
+import {
+  HiOutlineShoppingCart,
+  HiOutlineMagnifyingGlass,
+} from "react-icons/hi2";
 
 function Header() {
   return (
@@ -31,27 +35,43 @@ function Header() {
               className="w-36 h-auto object-cover"
             />
           </div>
-          <div className="flex-center gap-2">
-            <div>
-              <nav>
-                <ul className="flex-center gap-2 child:px-4 child:py-1 child:font-DanaBold child:text-lg">
-                  <li>
-                    <Link to="">خانه</Link>
-                  </li>
-                  <li>
-                    <Link to="">نمونه کار</Link>
-                  </li>
-                  <li>
-                    <Link to="">بلاگ</Link>
-                  </li>
-                  <li>
-                    <Link to="">فروشگاه</Link>
-                  </li>
-                  <li>
-                    <Link to="">تماس</Link>
-                  </li>
-                </ul>
-              </nav>
+          <div className="flex-center gap-5">
+            <nav>
+              <ul className="flex-center gap-2 child:px-4 child:py-1 child:font-DanaBold child:text-lg">
+                <li>
+                  <Link to="">خانه</Link>
+                </li>
+                <li>
+                  <Link to="">نمونه کار</Link>
+                </li>
+                <li>
+                  <Link to="">بلاگ</Link>
+                </li>
+                <li>
+                  <Link to="">فروشگاه</Link>
+                </li>
+                <li>
+                  <Link to="">تماس</Link>
+                </li>
+              </ul>
+            </nav>
+            <div className="relative">
+              <HiOutlineShoppingCart className="text-3xl" />
+              <span className="flex-center absolute -top-1 -left-3 size-6 bg-white text-mainColor rounded-full">
+                0
+              </span>
+            </div>
+            <HiOutlineMagnifyingGlass className="text-3xl" />
+            {/* Open Drawer */}
+            <div className="cursor-pointer size-10 group">
+              <div
+                className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-[400]
+              before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-[400] after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-[400]"
+              ></div>
+               <div className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-300
+             before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-[400] after:content-[''] after:absolute after:size-2 after:group-hover:opacity-0 after:group-hover:invisible after:group-hover:-translate-x-full after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-300"></div>
+             <div className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-700
+            before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-700 after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-1000 before:group-hover:opacity-0 before:group-hover:invisible before:group-hover:-translate-x-full after:group-hover:opacity-0 after:group-hover:invisible after:group-hover:-translate-x-full"></div>
             </div>
           </div>
         </div>
@@ -85,17 +105,24 @@ function Header() {
               </Link>
               <button
                 className="btn flex-center gap-4 bg-transparent text-white border-none shadow-none hover:bg-transparent group"
-                onClick={()=>document.getElementById('my_modal_2').showModal()}
+                onClick={() =>
+                  document.getElementById("my_modal_2").showModal()
+                }
               >
                 مشاهده ویدیو
                 <BiPlayCircle className="text-3xl group-hover:text-secondColor transition-colors" />
               </button>
               <dialog id="my_modal_2" className="modal">
                 <div className="modal-box text-mainColor">
-                  <h3 className="font-bold text-lg mb-3">جذب و جذب مشتریان با بازاریابی دیجیتال/ دیجیتال مارکتینگ </h3>
-                <video className="w-full rounded-md" controls autoPlay>
-                    <source src="https://www.aparat.com/v/aGXPg" type="video/mp4" />
-                </video>
+                  <h3 className="font-bold text-lg mb-3">
+                    جذب و جذب مشتریان با بازاریابی دیجیتال/ دیجیتال مارکتینگ{" "}
+                  </h3>
+                  <video className="w-full rounded-md" controls autoPlay>
+                    <source
+                      src="https://www.aparat.com/v/aGXPg"
+                      type="video/mp4"
+                    />
+                  </video>
                 </div>
                 <form method="dialog" className="modal-backdrop">
                   <button>close</button>
@@ -121,8 +148,3 @@ function Header() {
 }
 
 export default Header;
-
-// defaultProps when props unavailable
-// Header.defaultProps = {
-//   image: './image.jpg'
-// }
