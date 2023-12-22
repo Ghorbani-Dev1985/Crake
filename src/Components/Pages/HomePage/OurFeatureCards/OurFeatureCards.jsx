@@ -20,7 +20,7 @@ export default OurFeatureCards;
 function OurFeatureCard ({Icon , Title , Description}) {
   return(
      <div className='flex flex-col items-center'>
-       <p className='flex-center w-20 h-20 rounded-full bg-purple-100 text-purple-400 text-xl'>
+       <p className='flex-center size-20 rounded-full bg-purple-100 text-purple-400 text-xl'>
           {Icon}
        </p>
        <h3 className='font-DanaBold text-lg md:text-xl mb-4'>{Title}</h3>

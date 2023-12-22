@@ -107,7 +107,7 @@ function Header() {
         <img
           src={ShapeFour}
           alt="ghorbani-dev.ir"
-          className="absolute left-72 bottom-72 z-0 opacity-10 animate-fullRotate rounded-full"
+          className="absolute left-96 bottom-72 z-0 opacity-30 animate-fullRotate rounded-full"
         />
         <img
           src={ShapeThree}
