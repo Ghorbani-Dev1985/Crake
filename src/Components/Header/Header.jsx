@@ -12,8 +12,31 @@ import {
   HiOutlineMagnifyingGlass,
 } from "react-icons/hi2";
 
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Button,
+  Box,
+  Stack,
+  FormLabel,
+  InputGroup,
+  InputLeftAddon,
+  InputRightAddon,
+  Select,
+  Input,
+} from '@chakra-ui/react'
+
+
 function Header() {
+
   return (
+    <>
     <header className="bg-mainColor text-white relative min-h-screen">
       <div className="container py-8">
         <img
@@ -25,7 +48,7 @@ function Header() {
           src={ShapeTwo}
           alt="ghorbani-dev.ir"
           className="absolute right-0 top-20 animate-moveBounce opacity-20"
-        />
+          />
         {/* Logo & Nav */}
         <div className="flex-between">
           <div>
@@ -63,16 +86,35 @@ function Header() {
             </div>
             <HiOutlineMagnifyingGlass className="text-3xl" />
             {/* Open Drawer */}
-            <div className="cursor-pointer size-10 group">
+            <button className="cursor-pointer size-10 group">
               <div
                 className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-[400]
-              before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-[400] after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-[400]"
-              ></div>
+                before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-[400] after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-[400]"
+                ></div>
                <div className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-300
              before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-[400] after:content-[''] after:absolute after:size-2 after:group-hover:opacity-0 after:group-hover:invisible after:group-hover:-translate-x-full after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-300"></div>
              <div className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-700
             before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-700 after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-1000 before:group-hover:opacity-0 before:group-hover:invisible before:group-hover:-translate-x-full after:group-hover:opacity-0 after:group-hover:invisible after:group-hover:-translate-x-full"></div>
-            </div>
+            </button>
+            {/* <Drawer onClose={onClose} initialFocusRef={HeaderDrawer} isOpen={isOpen} size={xl}>
+    <DrawerOverlay />
+    <DrawerContent>
+    <DrawerCloseButton />
+    <DrawerHeader></DrawerHeader>
+    <DrawerBody>
+    <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Consequat nisl vel pretium lectus quam id. Semper quis lectus
+    nulla at volutpat diam ut venenatis. Dolor morbi non arcu risus
+      quis varius quam quisque. Massa ultricies mi quis hendrerit dolor
+      magna eget est lorem. Erat imperdiet sed euismod nisi porta.
+      Lectus vestibulum mattis ullamcorper velit.
+      </p>
+      </DrawerBody>
+      </DrawerContent>
+    </Drawer> */}
+  
           </div>
         </div>
         {/* Img & Text */}
@@ -82,7 +124,7 @@ function Header() {
               src={MainImage}
               alt="ghorbani-dev.ir"
               className="object-cover"
-            />
+              />
           </div>
           <div className="flex flex-1 flex-col">
             <h1 className="font-MorabbaBold text-xl md:text-5xl/[5rem] mb-4 text-center">
@@ -96,7 +138,7 @@ function Header() {
               <Link
                 to="#"
                 className="group relative inline-block overflow-hidden rounded border border-gray-100 bg-white  px-12 py-3 text-sm md:text-xl text-violet-800 font-DanaBold hover:text-mainColor hover:bg-gray-50 focus:outline-none focus:ring active:bg-secondColor active:text-white"
-              >
+                >
                 <span className="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-mainColor transition-all duration-200 group-hover:w-full"></span>
                 <span className="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-mainColor transition-all duration-200 group-hover:h-full"></span>
                 <span className="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-mainColor transition-all duration-200 group-hover:w-full"></span>
@@ -121,7 +163,7 @@ function Header() {
                     <source
                       src="https://www.aparat.com/v/aGXPg"
                       type="video/mp4"
-                    />
+                      />
                   </video>
                 </div>
                 <form method="dialog" className="modal-backdrop">
@@ -135,7 +177,7 @@ function Header() {
           src={ShapeFour}
           alt="ghorbani-dev.ir"
           className="absolute left-96 bottom-72 z-0 opacity-30 animate-fullRotate rounded-full"
-        />
+          />
         <img
           src={ShapeThree}
           alt="ghorbani-dev.ir"
@@ -144,7 +186,47 @@ function Header() {
         <div className="w-36 h-36 bg-white/10 absolute left-5 bottom-30 rounded-full animate-moveBounce"></div>
       </div>
     </header>
+          </>
   );
 }
 
 export default Header;
+
+
+function DrawerExample() {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
+
+  return (
+    <>
+      <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+        Open
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement='right'
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Create your account</DrawerHeader>
+
+          <DrawerBody>
+            <Input placeholder='Type here...' />
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button variant='outline' mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme='blue'>Save</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </>
+  )
+}
+
+export {DrawerExample}
