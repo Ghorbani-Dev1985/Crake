@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./../../assets/Images/logo.png";
 import ShapeOne from "./../../assets/Images/shape1.png";
 import ShapeTwo from "./../../assets/Images/shape2.png";
@@ -10,21 +10,32 @@ import {
   HiOutlineShoppingCart,
   HiOutlineMagnifyingGlass,
 } from "react-icons/hi2";
-import { BiMap , BiPhone, BiPlayCircle, BiEnvelope , BiLogoInstagram , BiLogoFacebook, BiLogoLinkedin , BiLogoTwitter} from "react-icons/bi";
+import { BiMap , BiPhone, BiPlayCircle, BiEnvelope , BiLogoInstagram , BiLogoFacebook, BiLogoLinkedin , BiLogoTwitter , BiMenuAltRight} from "react-icons/bi";
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
+  Box,
 } from "@chakra-ui/react";
 import MoveLine from "../Common/MoveLine/MoveLine";
+import { AddIcon, EditIcon, ExternalLinkIcon, MinusIcon, RepeatIcon } from "@chakra-ui/icons";
+import MobileNav from "./MobileNav";
 
 function Header() {
+  const [toggleMobileNav , setToggleMobileName] = useState(false)
   return (
     <>
       <header className="bg-mainColor text-white relative min-h-screen">
@@ -39,8 +50,8 @@ function Header() {
             alt="ghorbani-dev.ir"
             className="absolute right-0 top-20 animate-moveBounce opacity-20"
           />
-          {/* Logo & Nav */}
-          <div className="flex-between">
+          {/* Logo & Nav - Desktop */}
+          <div className="hidden md:flex-between">
             <div>
               <img
                 src={Logo}
@@ -79,6 +90,23 @@ function Header() {
               <DrawerExample />
             </div>
           </div>
+           {/* Logo & Nav - Mobile */}
+           <nav className="flex-between md:hidden relative border-b border-b-white/20 pb-4">
+            <div onClick={() => setToggleMobileName(!toggleMobileNav)}>
+        <BiMenuAltRight className="text-4xl text-white hover:text-purple-900" />
+            </div>
+                <Accordion allowToggle className={`${toggleMobileNav ? 'block' : 'hidden'} w-full absolute z-50 top-12 bg-gray-100 rounded-md text-zinc-800`}>
+            <MobileNav />
+          </Accordion>
+
+           <div>
+              <img
+                src={Logo}
+                alt="ghorbani-dev.ir"
+                className="w-36 h-auto object-cover"
+              />
+            </div>
+           </nav>
           {/* Img & Text */}
           <div className="flex-between gap-12 min-h-screen z-10 relative">
             <div className="flex flex-1">
