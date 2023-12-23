@@ -45,12 +45,6 @@
   body {
     @apply dark:bg-zinc-800 text-zinc-800 bg-white font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-mainColor dark:scrollbar-thumb-gray-700 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
   }
-  a{
-    @apply relative inline-block
-  }
-  a:hover{
-    @apply text-amber-300 transition-colors before:content-[''] before:absolute before:top-2 before:-right-3 before:w-2 before:h-2 before:rounded-full before:bg-amber-300
-  }
 }
 
 @layer components {
