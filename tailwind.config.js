@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-// const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}" , "./node_modules/flowbite/**/*.js"],
   theme: {
     extend: {
       container: {
@@ -215,5 +214,6 @@ module.exports = {
       addVariant("child-hover", "& > *:hover");
     },
     require("tailwind-scrollbar"),
+    require('flowbite/plugin'),
   ],
 };

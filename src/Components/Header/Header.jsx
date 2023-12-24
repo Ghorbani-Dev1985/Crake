@@ -11,27 +11,7 @@ import {
   HiOutlineMagnifyingGlass,
 } from "react-icons/hi2";
 import { BiMap , BiPhone, BiPlayCircle, BiEnvelope , BiLogoInstagram , BiLogoFacebook, BiLogoLinkedin , BiLogoTwitter , BiMenuAltRight} from "react-icons/bi";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  useDisclosure,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  IconButton,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionIcon,
-  AccordionPanel,
-  Box,
-} from "@chakra-ui/react";
 import MoveLine from "../Common/MoveLine/MoveLine";
-import { AddIcon, EditIcon, ExternalLinkIcon, MinusIcon, RepeatIcon } from "@chakra-ui/icons";
 import MobileNav from "./MobileNav";
 
 function Header() {
@@ -92,12 +72,12 @@ function Header() {
           </div>
            {/* Logo & Nav - Mobile */}
            <nav className="flex-between md:hidden relative border-b border-b-white/20 pb-4">
-            <div onClick={() => setToggleMobileName(!toggleMobileNav)}>
+            {/* <div onClick={() => setToggleMobileName(!toggleMobileNav)}>
         <BiMenuAltRight className="text-4xl text-white hover:text-purple-900" />
             </div>
                 <Accordion allowToggle className={`${toggleMobileNav ? 'block' : 'hidden'} w-full absolute z-50 top-12 bg-gray-100 rounded-md text-zinc-800`}>
-            <MobileNav />
-          </Accordion>
+              </Accordion> */}
+              <MobileNav />
 
            <div>
               <img
@@ -183,12 +163,10 @@ function Header() {
 export default Header;
 
 function DrawerExample() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
 
   return (
     <>
-      <button ref={btnRef} onClick={onOpen} className="cursor-pointer size-10 group">
+      <button className="cursor-pointer size-10 group">
                 <div
                   className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-[400]
                 before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-[400] after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-[400]"
@@ -202,7 +180,7 @@ function DrawerExample() {
             before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-700 after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-1000 before:group-hover:opacity-0 before:group-hover:invisible before:group-hover:-translate-x-full after:group-hover:opacity-0 after:group-hover:invisible after:group-hover:-translate-x-full"
                 ></div>
               </button>
-      <Drawer
+      {/* <Drawer
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
@@ -272,7 +250,7 @@ function DrawerExample() {
           </div>
           </DrawerBody>
         </DrawerContent>
-      </Drawer>
+      </Drawer> */}
     </>
   );
 }
