@@ -14,10 +14,12 @@ import { BiMap , BiPhone, BiPlayCircle, BiEnvelope , BiLogoInstagram , BiLogoFac
 import MoveLine from "../Common/MoveLine/MoveLine";
 import MobileNav from "./MobileNav";
 
-function Header() {
-  const [toggleMobileNav , setToggleMobileName] = useState(false)
+function Header(props) {
+  console.log(props)
   return (
     <>
+   {/* Logo & Nav - Mobile */}
+        <MobileNav/>
       <header className="bg-mainColor text-white relative min-h-screen">
         <div className="container py-8">
           <img
@@ -70,23 +72,6 @@ function Header() {
               <DrawerExample />
             </div>
           </div>
-           {/* Logo & Nav - Mobile */}
-           <nav className="flex-between md:hidden relative border-b border-b-white/20 pb-4">
-            {/* <div onClick={() => setToggleMobileName(!toggleMobileNav)}>
-        <BiMenuAltRight className="text-4xl text-white hover:text-purple-900" />
-            </div>
-                <Accordion allowToggle className={`${toggleMobileNav ? 'block' : 'hidden'} w-full absolute z-50 top-12 bg-gray-100 rounded-md text-zinc-800`}>
-              </Accordion> */}
-              <MobileNav />
-
-           <div>
-              <img
-                src={Logo}
-                alt="ghorbani-dev.ir"
-                className="w-36 h-auto object-cover"
-              />
-            </div>
-           </nav>
           {/* Img & Text */}
           <div className="flex-between gap-12 min-h-screen z-10 relative">
             <div className="flex flex-1">
