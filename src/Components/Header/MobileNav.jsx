@@ -15,6 +15,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Paper } from "@mui/material";
 const MenuItems = [
   {
     id: 1,
@@ -86,17 +87,17 @@ function MobileNav() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'right',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              className="w-full"
-            >
+              className="block md:hidden"
+              >
               {MenuItems.map(({id , title , link}) => (
                 <MenuItem key={id} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{title}</Typography>
@@ -112,7 +113,7 @@ function MobileNav() {
               src={Logo}
               alt="ghorbani-dev.ir"
               className="w-36 h-auto object-cover"
-            />
+              />
           </Link>
 
         </Toolbar>

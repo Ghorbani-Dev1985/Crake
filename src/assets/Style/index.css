@@ -109,3 +109,9 @@
 .css-iljtu2-MuiRating-root {
   direction: ltr;
 }
+
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+  right: 0;
+  left: -13px !important;
+  margin: 0 auto;
+}
