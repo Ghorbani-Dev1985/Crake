@@ -42,6 +42,12 @@
   * {
     @apply p-0 m-0 box-border;
   }
+  a{
+    @apply no-underline text-white
+  }
+  li{
+    @apply list-none
+  }
   body {
     @apply dark:bg-zinc-800 text-zinc-800 bg-white font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-mainColor dark:scrollbar-thumb-gray-700 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
   }
