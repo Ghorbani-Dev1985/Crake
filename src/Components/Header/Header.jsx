@@ -33,7 +33,7 @@ function Header(props) {
           <img
             src={ShapeTwo}
             alt="ghorbani-dev.ir"
-            className="absolute right-0 md:top-20 h-24 md:h-full animate-moveBounce opacity-20"
+            className="absolute right-0 md:top-20 h-24 md:h-auto animate-moveBounce opacity-20"
           />
           {/* Logo & Nav - Desktop */}
           <div className="hidden md:flex-between">
@@ -81,7 +81,7 @@ function Header(props) {
               <img
                 src={MainImage}
                 alt="ghorbani-dev.ir"
-                className="object-cover size-72 md:size-full"
+                className="object-cover sm:size-72 md:size-auto"
               />
             </div>
             <div className="flex flex-1 flex-col">
@@ -134,12 +134,12 @@ function Header(props) {
           <img
             src={ShapeFour}
             alt="ghorbani-dev.ir"
-            className="absolute right-0 left-0 mx-auto bottom-48 md:left-96 md:bottom-72 size-72 md:size-full z-0 opacity-30 animate-fullRotate rounded-full"
+            className="absolute right-0 left-0 mx-auto bottom-48 md:left-96 md:bottom-72 size-72 md:size-auto z-0 opacity-30 animate-fullRotate rounded-full"
           />
           <img
             src={ShapeThree}
             alt="ghorbani-dev.ir"
-            className="absolute right-1 bottom-20 size-25 md:size-full md:right-8 md:bottom-30 animate-moveBounce"
+            className="absolute right-1 bottom-20 size-25 md:size-auto md:right-8 md:bottom-30 animate-moveBounce"
           />
           <div className="size-20 md:size-36 bg-white/10 absolute left-5 bottom-20 md:bottom-30 rounded-full animate-moveBounce"></div>
         </div>
