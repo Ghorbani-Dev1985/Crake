@@ -4,7 +4,7 @@ import OurFeatures from './OurFeatures'
 function HomePage() {
   return (
     <>
-    {/* <OurFeatures /> */}
+    <OurFeatures />
     </>
   )
 }
