@@ -13,9 +13,7 @@ import {
 import { BiMap , BiPhone, BiPlayCircle, BiEnvelope , BiLogoInstagram , BiLogoFacebook, BiLogoLinkedin , BiLogoTwitter , BiMenuAltRight} from "react-icons/bi";
 import MoveLine from "../Common/MoveLine/MoveLine";
 import MobileNav from "./MobileNav";
-import { Box, Button, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import { Box, Drawer } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -30,12 +28,12 @@ function Header(props) {
           <img
             src={ShapeOne}
             alt="ghorbani-dev.ir"
-            className="absolute left-10 top-25 animate-moveBounce"
+            className="absolute left-1 md:left-10 md:top-25 animate-moveBounce"
           />
           <img
             src={ShapeTwo}
             alt="ghorbani-dev.ir"
-            className="absolute right-0 top-20 animate-moveBounce opacity-20"
+            className="absolute right-0 md:top-20 h-24 md:h-full animate-moveBounce opacity-20"
           />
           {/* Logo & Nav - Desktop */}
           <div className="hidden md:flex-between">
@@ -74,16 +72,16 @@ function Header(props) {
               </div>
               <HiOutlineMagnifyingGlass className="text-3xl" />
               {/* Open Drawer */}
-              <DrawerExample />
+              <ContactUsDrawer />
             </div>
           </div>
           {/* Img & Text */}
-          <div className="flex-between gap-12 min-h-screen z-10 relative">
-            <div className="flex flex-1">
+          <div className="flex flex-col justify-between gap-16 md:flex-between md:gap-12 min-h-screen z-10 relative">
+            <div className="flex flex-1 justify-center items-center">
               <img
                 src={MainImage}
                 alt="ghorbani-dev.ir"
-                className="object-cover"
+                className="object-cover size-72 md:size-full"
               />
             </div>
             <div className="flex flex-1 flex-col">
@@ -136,14 +134,14 @@ function Header(props) {
           <img
             src={ShapeFour}
             alt="ghorbani-dev.ir"
-            className="absolute left-96 bottom-72 z-0 opacity-30 animate-fullRotate rounded-full"
+            className="absolute right-0 left-0 mx-auto bottom-48 md:left-96 md:bottom-72 size-72 md:size-full z-0 opacity-30 animate-fullRotate rounded-full"
           />
           <img
             src={ShapeThree}
             alt="ghorbani-dev.ir"
-            className="absolute right-8 bottom-30 animate-moveBounce"
+            className="absolute right-1 bottom-20 size-25 md:size-full md:right-8 md:bottom-30 animate-moveBounce"
           />
-          <div className="w-36 h-36 bg-white/10 absolute left-5 bottom-30 rounded-full animate-moveBounce"></div>
+          <div className="size-20 md:size-36 bg-white/10 absolute left-5 bottom-20 md:bottom-30 rounded-full animate-moveBounce"></div>
         </div>
       </header>
     </>
@@ -152,8 +150,8 @@ function Header(props) {
 
 export default Header;
   
-function DrawerExample() {
-  const [state, setState] = React.useState( {right: false});
+function ContactUsDrawer() {
+  const [state, setState] = useState( {right: false});
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -167,6 +165,7 @@ function DrawerExample() {
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 550 }}
       role="presentation"
       className="px-4"
+      onKeyDown={toggleDrawer(anchor, false)}
     >
      <h2 className="font-DanaBold text-base md:text-3xl mt-8">لینک های اضافی</h2>
           <MoveLine />
@@ -252,108 +251,8 @@ function DrawerExample() {
               </div>
             {list('right')}
           </Drawer>
-
-
-
-              {/* {['right'].map((anchor) => (
-        <React.Fragment key={anchor}>
-         <button onClick={toggleDrawer(anchor, true)} className="cursor-pointer bg-transparent shadow-none border-none size-10 group">
-                <div
-                  className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-[400]
-                before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-[400] after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-[400]"
-                ></div>
-                <div
-                  className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-300
-             before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-[400] after:content-[''] after:absolute after:size-2 after:group-hover:opacity-0 after:group-hover:invisible after:group-hover:-translate-x-full after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-300"
-                ></div>
-                <div
-                  className="size-2 relative block bg-white rounded-full mb-[2px] transition-all ease-in-out duration-700
-            before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-700 after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-1000 before:group-hover:opacity-0 before:group-hover:invisible before:group-hover:-translate-x-full after:group-hover:opacity-0 after:group-hover:invisible after:group-hover:-translate-x-full"
-                ></div>
-              </button> 
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-              <div className="bg-gradient-to-l from-purple-900 to-purple-400 py-10 px-4"><img src={Logo} alt="ghorbani-dev.ir" className="w-44 h-auto object-cover" /></div>
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))} */}
-      {/* <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        finalFocusRef={btnRef}
-        size="lg"
-        className="bg-white"
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton className="left-3 !right-auto" />
-          <div className="bg-gradient-to-l from-purple-800 to-purple-200 py-14 px-4"><img src={Logo} alt="ghorbani-dev.ir" className="w-44 h-auto object-cover" /></div>
-          <DrawerBody className="bg-purple-50">
-           <h2 className="font-DanaBold text-base md:text-3xl mt-8">لینک های اضافی</h2>
-          <MoveLine />
-          <ul className="space-y-4">
-            <li><Link className="hover:text-purple-900 transition-colors">ورود</Link></li>
-            <li><Link className="hover:text-purple-900 transition-colors">ثبت نام</Link></li>
-            <li><Link className="hover:text-purple-900 transition-colors"> گفت و گو</Link></li>
-            <li><Link className="hover:text-purple-900 transition-colors"> خروج</Link></li>
-          </ul>
-          <h2 className="font-DanaBold text-base md:text-3xl mt-8">  اطلاعات تماس</h2>
-          <MoveLine />
-            <ul className="space-y-8">
-              <li className="flex items-center gap-3">
-                 <p className="flex-center size-14 text-3xl text-purple-800 rounded-md bg-purple-100">
-                 <BiMap />
-                 </p>
-                 <div className="flex flex-col gap-3">
-                   <span className="font-bold">آدرس</span>
-                   <span>ایران - تهران - شهرک غرب</span>
-                 </div>
-              </li>
-              <li className="flex items-center gap-3">
-              <p className="flex-center size-14 text-3xl text-purple-800 rounded-md bg-purple-100">
-              <BiPhone />
-                 </p>
-                 <div className="flex flex-col gap-3">
-                   <span className="font-bold">تلفن</span>
-                   <span> 09121111111</span>
-                 </div>
-              </li>
-              <li className="flex items-center gap-3">
-              <p className="flex-center size-14 text-3xl text-purple-800 rounded-md bg-purple-100">
-              <BiEnvelope />
-                 </p>
-                 <div className="flex flex-col gap-3">
-                   <span className="font-bold">ایمیل</span>
-                   <span>admin@crake.com</span>
-                 </div>
-              </li>
-            </ul>
-            <h2 className="font-DanaBold text-base md:text-3xl mt-8">   ارتباط با ما</h2>
-          <MoveLine />
-          <div className="flex items-center gap-2">
-            <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
-            <BiLogoInstagram className="group-hover:text-purple-900 transition-colors"/>
-            </Link>
-            <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
-            <BiLogoFacebook className="group-hover:text-purple-900 transition-colors"/>
-            </Link>
-            <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
-            <BiLogoLinkedin className="group-hover:text-purple-900 transition-colors"/>
-            </Link>
-            <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
-            <BiLogoTwitter className="group-hover:text-purple-900 transition-colors"/>
-            </Link>
-          </div>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer> */}
     </>
   );
 }
 
-export { DrawerExample };
+export { ContactUsDrawer };
