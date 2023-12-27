@@ -18,7 +18,7 @@ function OurFeatures() {
            <p>در این قسمت می توانید بخش کوچکی از امکانات و ویژگی های قابل ارائه ما را ملاحظه بفرمایید.</p>
         </div>
         <OurFeatureCards />
-        <img src={ShapeSeven} className='absolute sm:size-40 md:size-auto -left-10 bottom-25' alt='ghorbani-dev.ir' />
+        <img src={ShapeSeven} className='absolute sm:size-40 md:size-auto left-0 bottom-25' alt='ghorbani-dev.ir' />
         <img src={ShapeSex} className='absolute -left-8 md:left-8 bottom-10 md:bottom-25 animate-fullRotateY' alt='ghorbani-dev.ir' />
         <img src={ShapeNine} className='absolute left-0 right-0 mx-auto bottom-80 animate-rectangle' alt='ghorbani-dev.ir' />
        </div>
