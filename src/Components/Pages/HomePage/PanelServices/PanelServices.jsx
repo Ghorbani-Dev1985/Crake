@@ -1,6 +1,8 @@
 import React from "react";
 import Feature from '../../../../assets/Images/features-img1.png'
+import ShapeThree from '../../../../assets/Images/shape3.png'
 import ShapeEight from '../../../../assets/Images/svgs/shape8.svg'
+import ShapeEleven from '../../../../assets/Images/svgs/shape11.svg'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import RedeemIcon from '@mui/icons-material/Redeem';
 import QrCode2Icon from '@mui/icons-material/QrCode2';
@@ -10,14 +12,17 @@ function PanelServices() {
     <section>
       <div className="container">
         <div className="grid grid-cols-2 gap-8 ">
-          <div>
-           <img src={Feature} alt="ghorbani-dev.ir" className="object-fit max-w-xl" />
+          <div className="relative">
+           <img src={Feature} alt="ghorbani-dev.ir" className="object-fit max-w-2xl relative z-20" />
+           <img src={ShapeThree} alt="ghorbani-dev.ir" className="absolute -right-0 z-10 bottom-20 animate-moveBounce" />
           </div>
-          <div className="w-full relative">
+          <div className="w-full relative z-20">
         <img src={ShapeEight} alt="ghorbani-dev.ir" className="absolute left-28 -top-4 animate-fullRotate" />
             <Service icon={<LocalPhoneIcon className="size-12"/>} title="خدمات تلفن رایگان" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<RedeemIcon className="size-12"/>} title="هدیه رایگان روزانه" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<QrCode2Icon className="size-12"/>} title="اسکنر QR کد " subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
+            <img src={ShapeEleven} alt="ghorbani-dev.ir" className="absolute z-20 -left-36 opacity-20 bottom-10 animate-fullRotate" />
+            <div className="size-20 md:size-36 bg-purple-500 absolute z-10 opacity-20 -left-36 bottom-20 md:bottom-0 rounded-full animate-moveBounce"></div>
           </div>
         </div>
       </div>
