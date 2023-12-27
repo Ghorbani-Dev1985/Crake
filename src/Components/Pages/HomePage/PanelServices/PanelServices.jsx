@@ -1,5 +1,6 @@
 import React from "react";
 import Feature from '../../../../assets/Images/features-img1.png'
+import ShapeEight from '../../../../assets/Images/svgs/shape8.svg'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import RedeemIcon from '@mui/icons-material/Redeem';
 import QrCode2Icon from '@mui/icons-material/QrCode2';
@@ -8,11 +9,12 @@ function PanelServices() {
   return (
     <section>
       <div className="container">
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 gap-8 ">
           <div>
            <img src={Feature} alt="ghorbani-dev.ir" className="object-fit max-w-xl" />
           </div>
-          <div className="w-full">
+          <div className="w-full relative">
+        <img src={ShapeEight} alt="ghorbani-dev.ir" className="absolute left-28 -top-4 animate-fullRotate" />
             <Service icon={<LocalPhoneIcon className="size-12"/>} title="خدمات تلفن رایگان" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<RedeemIcon className="size-12"/>} title="هدیه رایگان روزانه" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<QrCode2Icon className="size-12"/>} title="اسکنر QR کد " subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
