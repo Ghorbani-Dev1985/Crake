@@ -107,6 +107,9 @@
   .flex-between{
     @apply flex justify-between items-center
   }
+  .MoreFeaturesBG{
+   background: #F9FAFC url("../Images/bg-point.png") no-repeat fixed right -600px center/auto;
+  }
 }
 
 .css-1c99szj-MuiRating-icon{
