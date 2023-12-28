@@ -11,10 +11,10 @@ import {
   HiOutlineMagnifyingGlass,
 } from "react-icons/hi2";
 import { BiMap , BiPhone, BiPlayCircle, BiEnvelope , BiLogoInstagram , BiLogoFacebook, BiLogoLinkedin , BiLogoTwitter , BiMenuAltRight} from "react-icons/bi";
-import MoveLine from "../Common/MoveLine/MoveLine";
 import MobileNav from "./MobileNav";
 import { Box, Drawer } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
+import SectionTitle from "../../assets/common/SectionTitle/SectionTitle";
 
 
 function Header(props) {
@@ -167,16 +167,14 @@ function ContactUsDrawer() {
       className="px-4"
       onKeyDown={toggleDrawer(anchor, false)}
     >
-     <h2 className="font-DanaBold text-base md:text-3xl mt-8">لینک های اضافی</h2>
-          <MoveLine />
+       <SectionTitle title="  لینک های اضافی " titleStyle=""/>
           <ul className="space-y-4">
             <li><Link className="text-zinc-700 hover:text-purple-900 transition-colors">ورود</Link></li>
             <li><Link className="text-zinc-700 hover:text-purple-900 transition-colors">ثبت نام</Link></li>
             <li><Link className="text-zinc-700 hover:text-purple-900 transition-colors"> گفت و گو</Link></li>
             <li><Link className="text-zinc-700 hover:text-purple-900 transition-colors"> خروج</Link></li>
           </ul>
-          <h2 className="font-DanaBold text-base md:text-3xl mt-8">  اطلاعات تماس</h2>
-          <MoveLine />
+          <SectionTitle title=" اطلاعات تماس " titleStyle=""/>
             <ul className="space-y-8">
               <li className="flex items-center gap-3">
                  <p className="flex-center size-14 text-3xl text-purple-800 rounded-md bg-purple-100">
@@ -206,8 +204,7 @@ function ContactUsDrawer() {
                  </div>
               </li>
             </ul>
-            <h2 className="font-DanaBold text-base md:text-3xl mt-8">   ارتباط با ما</h2>
-          <MoveLine />
+            <SectionTitle title="ارتباط با ما" titleStyle=""/>
           <div className="flex items-center gap-2">
             <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
             <BiLogoInstagram className="group-hover:text-purple-900 transition-colors"/>

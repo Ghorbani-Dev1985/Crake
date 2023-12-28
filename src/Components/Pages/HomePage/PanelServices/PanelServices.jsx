@@ -11,7 +11,7 @@ function PanelServices() {
   return (
     <section className="mb-5">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
           <div className="relative">
            <img src={Feature} alt="ghorbani-dev.ir" className="object-fit max-w-2xl relative z-20" />
            <img src={ShapeThree} alt="ghorbani-dev.ir" className="absolute -right-0 z-10 -bottom-4 md:bottom-20 animate-moveBounce" />
@@ -21,8 +21,8 @@ function PanelServices() {
             <Service icon={<LocalPhoneIcon className="size-12"/>} title="خدمات تلفن رایگان" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<RedeemIcon className="size-12"/>} title="هدیه رایگان روزانه" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<QrCode2Icon className="size-12"/>} title="اسکنر QR کد " subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
-            <img src={ShapeEleven} alt="ghorbani-dev.ir" className="absolute size-24 md:size-auto z-20 -left-12 md:-left-36 opacity-20 bottom-28 md:bottom-10 animate-fullRotate" />
-            <div className="size-20 md:size-36 bg-purple-500 absolute z-10 opacity-20 -left-12 md:-left-36 bottom-16 md:bottom-0 rounded-full animate-moveBounce"></div>
+            <img src={ShapeEleven} alt="ghorbani-dev.ir" className="absolute size-24 md:size-auto z-20 -left-12 lg:-left-36 opacity-20 bottom-28 md:bottom-10 animate-fullRotate" />
+            <div className="size-20 md:size-36 bg-purple-500 absolute z-10 opacity-20 -left-12 lg:-left-36 bottom-16 md:bottom-0 rounded-full animate-moveBounce"></div>
           </div>
         </div>
       </div>
