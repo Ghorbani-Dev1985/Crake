@@ -9,7 +9,7 @@ import QrCode2Icon from '@mui/icons-material/QrCode2';
 
 function PanelServices() {
   return (
-    <section>
+    <section className="mb-5">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <div className="relative">
