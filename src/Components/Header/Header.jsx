@@ -76,7 +76,7 @@ function Header(props) {
             </div>
           </div>
           {/* Img & Text */}
-          <div className="flex flex-col justify-between gap-16 md:flex-between md:gap-12 min-h-screen z-10 relative">
+          <div className="flex flex-col justify-between gap-16 lg:flex-between lg:flex-row md:gap-12 min-h-screen z-10 relative">
             <div className="flex flex-1 justify-center items-center">
               <img
                 src={MainImage}
@@ -115,7 +115,7 @@ function Header(props) {
                 <dialog id="my_modal_2" className="modal">
                   <div className="modal-box text-mainColor">
                     <h3 className="font-bold text-lg mb-3">
-                      جذب و جذب مشتریان با بازاریابی دیجیتال/ دیجیتال مارکتینگ{" "}
+                      جذب و جذب مشتریان با بازاریابی دیجیتال/ دیجیتال مارکتینگ
                     </h3>
                     <video className="w-full rounded-md" controls autoPlay>
                       <source
@@ -134,7 +134,7 @@ function Header(props) {
           <img
             src={ShapeFour}
             alt="ghorbani-dev.ir"
-            className="absolute right-0 left-0 mx-auto bottom-48 md:left-96 md:bottom-72 size-72 md:size-auto z-0 opacity-30 animate-fullRotate rounded-full"
+            className="absolute right-0 left-0 mx-auto bottom-48 lg:-left-[40rem] md:bottom-0 lg:bottom-72 size-72 md:size-auto z-0 opacity-30 animate-fullRotate rounded-full"
           />
           <img
             src={ShapeThree}
