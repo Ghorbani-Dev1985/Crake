@@ -4,7 +4,8 @@ import ShapeTen from '../../../assets/Images/svgs/shape10.svg'
 import ShapeSex from '../../../assets/Images/shape6.png'
 import ShapeSeven from '../../../assets/Images/shape7.png'
 import ShapeNine from '../../../assets/Images/svgs/shape9.svg'
-import SectionTitle from '../../../assets/common/SectionTitle/SectionTitle'
+import SectionTitle from '../../common/SectionTitle/SectionTitle'
+
 
 
 function OurFeatures() {

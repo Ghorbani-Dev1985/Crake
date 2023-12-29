@@ -3,6 +3,7 @@ import SectionTitle from "../../../common/SectionTitle/SectionTitle";
 import ShapeSeven from "../../../../assets/Images/shape7.png";
 import ShapeSix from "../../../../assets/Images/shape6.png";
 import Calender from "./Calender";
+import OldComments from "./OldComments";
 
 function MoreFeatures() {
   return (
@@ -14,6 +15,7 @@ function MoreFeatures() {
           titleStyle="main"
         />
         <Calender />
+        <OldComments />
       </div>
 
       <img
