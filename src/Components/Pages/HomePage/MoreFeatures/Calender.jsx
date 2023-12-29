@@ -1,10 +1,11 @@
 import React from 'react'
 import CalenderImg from "../../../../assets/Images/overview-1.png";
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import { Box } from '@mui/material';
 
 function Calender() {
   return (
-    <section className='relative grid grid-cols-1 md:grid-cols-2 gap-10 my-25'>
+    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 my-25 z-20'>
       <div>
         <img src={CalenderImg}  alt='ghorbani-dev.ir' />
       </div>
@@ -22,7 +23,8 @@ function Calender() {
             <li>فیلتر دوربین</li>
            </ul>
       </div>
-    </section>
+      
+    </Box>
   )
 }
 
