@@ -4,14 +4,17 @@ import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import AnimateButton from './../../../common/AnimateButton/AnimateButton'
+import ShapeSeven from "../../../../assets/Images/shape7.png";
+import ShapeSix from "../../../../assets/Images/shape6.png";
+
 
 function Calender() {
   return (
-    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 my-25 z-20'>
-      <div>
-        <img src={CalenderImg}  alt='ghorbani-dev.ir' />
+    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 my-25'>
+      <div className='flex-center'>
+        <img src={CalenderImg}  alt='ghorbani-dev.ir' className='md:size-72 lg:size-auto' />
       </div>
-      <div className='flex flex-col gap-10'>
+      <div className='flex flex-col gap-10 relative z-20'>
            <p className='flex-center size-10 bg-purple-200 text-purple-500 rounded-full'>
                       <PowerSettingsNewIcon />
            </p>
@@ -29,7 +32,16 @@ function Calender() {
            </p>
                
       </div>
-      
+      <img
+        src={ShapeSeven}
+        alt="ghorbani-dev.ir"
+        className="absolute -left-30 md:-left-52 bottom-0 z-10"
+      />
+      <img
+        src={ShapeSix}
+        alt="ghorbani-dev.ir"
+        className="absolute -left-10 md:-left-40 -bottom-28 animate-fullRotateY z-10"
+      />
     </Box>
   )
 }
