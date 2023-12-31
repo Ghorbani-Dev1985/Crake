@@ -21,8 +21,8 @@ function PanelServices() {
             <Service icon={<LocalPhoneIcon className="size-8"/>} title="خدمات تلفن رایگان" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<RedeemIcon className="size-8"/>} title="هدیه رایگان روزانه" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<QrCode2Icon className="size-8"/>} title="اسکنر QR کد " subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
-            <img src={ShapeEleven} alt="ghorbani-dev.ir" className="absolute size-24 md:size-36 lg:size-auto z-20 -left-12 md:-left-0 lg:-left-36 opacity-20 bottom-28 md:bottom-0 lg:bottom-10 animate-fullRotate" />
-            <div className="size-20 md:size-36 bg-purple-500 absolute z-10 opacity-20 -left-12 md:-left-1 lg:-left-36 bottom-16 md:-bottom-20 lg:bottom-0 rounded-full animate-moveBounce"></div>
+            <img src={ShapeEleven} alt="ghorbani-dev.ir" className="absolute size-24 md:size-36 lg:size-auto z-20 -left-12 md:-left-0 opacity-10 bottom-28 md:bottom-0 lg:bottom-10 animate-fullRotate" />
+            <div className="size-20 md:size-36 bg-purple-500 absolute z-10 opacity-10 -left-12 md:-left-1 bottom-16 md:-bottom-20 lg:bottom-0 rounded-full animate-moveBounce"></div>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@ function Service({icon, title , subTitle}){
     return(
         <div className="w-full flex flex-col items-center group hover:-mt-2 transition-all ease-linear duration-300 mb-16">
            <div className="flex-center gap-8">
-             <div className="flex-center size-24 bg-slate-50 shadow-ring text-purple-800 rounded-full group-hover:bg-purple-800 group-hover:text-white transition-colors">
+             <div className="flex-center size-16 bg-slate-50 shadow-ring text-purple-800 rounded-full group-hover:bg-purple-800 group-hover:text-white transition-colors">
                    {icon}
              </div>
              <div className="w-3/4 flex flex-col">

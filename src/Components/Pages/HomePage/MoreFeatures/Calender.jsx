@@ -10,7 +10,7 @@ import ShapeSix from "../../../../assets/Images/shape6.png";
 
 function Calender() {
   return (
-    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 my-25'>
+    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 mt-20'>
       <div className='flex-center'>
         <img src={CalenderImg}  alt='ghorbani-dev.ir' className='md:size-72 lg:size-auto' />
       </div>

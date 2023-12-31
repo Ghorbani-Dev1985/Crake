@@ -9,7 +9,7 @@ import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 
 function OldComments() {
   return (
-    <Box className="grid grid-cols-1 md:grid-cols-2 gap-20 my-28">
+    <Box className="grid grid-cols-1 md:grid-cols-2 gap-20">
       <Box className="space-y-5 mx-4">
         <Typography className='flex-center size-10 bg-purple-200 text-purple-500 rounded-full'>
                  <AnchorIcon />
