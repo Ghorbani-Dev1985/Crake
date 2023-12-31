@@ -35,12 +35,12 @@ function Calender() {
       <img
         src={ShapeSeven}
         alt="ghorbani-dev.ir"
-        className="absolute -left-30 md:-left-52 lg:-left-80 bottom-0 z-10"
+        className="absolute -left-30 md:-left-52 bottom-0 z-10"
       />
       <img
         src={ShapeSix}
         alt="ghorbani-dev.ir"
-        className="absolute -left-10 md:-left-40 lg:-left-72 -bottom-28 animate-fullRotateY z-10"
+        className="absolute -left-10 md:-left-40 -bottom-28 animate-fullRotateY z-10"
       />
     </Box>
   )
