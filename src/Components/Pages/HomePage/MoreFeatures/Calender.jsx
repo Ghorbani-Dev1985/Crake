@@ -14,7 +14,7 @@ function Calender() {
       <div className='flex-center'>
         <img src={CalenderImg}  alt='ghorbani-dev.ir' className='md:size-72 lg:size-auto' />
       </div>
-      <div className='flex flex-col gap-10 relative z-20'>
+      <div className='flex flex-col gap-10 relative z-20 px-4'>
            <p className='flex-center size-10 bg-purple-200 text-purple-500 rounded-full'>
                       <PowerSettingsNewIcon />
            </p>

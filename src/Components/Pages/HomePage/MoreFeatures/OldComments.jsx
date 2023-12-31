@@ -10,7 +10,7 @@ import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 function OldComments() {
   return (
     <Box className="grid grid-cols-1 md:grid-cols-2 gap-20 my-28">
-      <Box className="space-y-5">
+      <Box className="space-y-5 mx-4">
         <Typography className='flex-center size-10 bg-purple-200 text-purple-500 rounded-full'>
                  <AnchorIcon />
            </Typography>
@@ -29,7 +29,7 @@ function OldComments() {
            <AnimateButton BtnText="ادامه مطلب"/>
            </Typography>   
       </Box>
-      <Box className="max-w-sm md:max-w-lg flex-between animate-moveBounce">
+      <Box className="md:max-w-lg flex-center gap-12 md:gap-0 md:flex-between animate-moveBounce">
                 <Box className="size-40 md:size-50 relative flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l from-emerald-600 to-emerald-600 text-white shadow-green">
                   <SentimentSatisfiedAltIcon className='text-6xl' />
                   <Typography>مدیریت</Typography>

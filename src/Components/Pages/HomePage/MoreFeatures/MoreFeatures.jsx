@@ -2,6 +2,7 @@ import React from "react";
 import SectionTitle from "../../../common/SectionTitle/SectionTitle";
 import Calender from "./Calender";
 import OldComments from "./OldComments";
+import CodeReview from "./CodeReview";
 
 function MoreFeatures() {
   return (
@@ -14,6 +15,7 @@ function MoreFeatures() {
         />
         <Calender />
         <OldComments />
+        <CodeReview />
       </div>
     </section>
   );
