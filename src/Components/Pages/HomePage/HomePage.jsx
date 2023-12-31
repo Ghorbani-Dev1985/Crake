@@ -2,6 +2,7 @@ import React from 'react'
 import OurFeatures from './OurFeatures'
 import PanelServices from './PanelServices/PanelServices'
 import MoreFeatures from './MoreFeatures/MoreFeatures'
+import JoinUS from '../../JoinUS/JoinUS'
 
 function HomePage() {
   return (
@@ -9,6 +10,7 @@ function HomePage() {
     <OurFeatures />
     <PanelServices />
     <MoreFeatures />
+    <JoinUS />
     </>
   )
 }
