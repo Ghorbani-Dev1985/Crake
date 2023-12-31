@@ -3,6 +3,7 @@ import SectionTitle from "../../../common/SectionTitle/SectionTitle";
 import Calender from "./Calender";
 import OldComments from "./OldComments";
 import CodeReview from "./CodeReview";
+import Profetionality from "./ProfessionalStaff";
 
 function MoreFeatures() {
   return (
@@ -16,6 +17,7 @@ function MoreFeatures() {
         <Calender />
         <OldComments />
         <CodeReview />
+        <Profetionality />
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ function Calender() {
            <p className='text-slate-400'>
            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
            </p>
-           <ul className='text-slate-400 child:before:content-[""] child:relative child:before:absolute child:before:-right-5 child:before:top-1.5 child:before:block child:before:bg-emerald-500 child:before:size-3 child:before:rounded-full'>
+           <ul className='text-slate-400 child:before:content-[""] child:relative child:before:absolute child:before:-right-5 child:before:top-1.5 child:before:block child:before:bg-pink-500 child:before:size-3 child:before:rounded-full'>
             <li>تماس ویدیویی نامحدود</li>
             <li>اضافه کردن مخاطب مورد علاقه</li>
             <li>فیلتر دوربین</li>
