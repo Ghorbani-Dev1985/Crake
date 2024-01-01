@@ -3,6 +3,7 @@ import OurFeatures from './OurFeatures'
 import PanelServices from './PanelServices/PanelServices'
 import MoreFeatures from './MoreFeatures/MoreFeatures'
 import JoinUS from '../../JoinUS/JoinUS'
+import UserCTA from '../../UserCTA/UserCTA'
 
 function HomePage() {
   return (
@@ -11,6 +12,7 @@ function HomePage() {
     <PanelServices />
     <MoreFeatures />
     <JoinUS />
+    <UserCTA />
     </>
   )
 }
