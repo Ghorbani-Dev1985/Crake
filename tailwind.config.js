@@ -19,7 +19,8 @@ module.exports = {
           'sm' : 'url("../../assets/Images/headerBgMobile.webp")',
           'xl' : 'url("../../assets/Images/headerBgDesktop.webp")',
           'products' : 'url("../../assets/Images/product-bg.png")',
-          'UserCTAbg' : 'url("../../assets/Images/cta-bg.jpg")'
+          'UserCTAbg' : 'url("../../assets/Images/cta-bg.jpg")',
+          'registerFormBg' : 'url("../../assets/Images/registerFormBg.png")',
       },
       colors: {
         brown: {

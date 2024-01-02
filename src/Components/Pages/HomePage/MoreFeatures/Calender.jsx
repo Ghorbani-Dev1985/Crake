@@ -2,10 +2,8 @@ import React from 'react'
 import CalenderImg from "../../../../assets/Images/overview-1.png";
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { Box } from '@mui/material';
-import { Link } from 'react-router-dom';
 import AnimateButton from './../../../common/AnimateButton/AnimateButton'
-import ShapeSeven from "../../../../assets/Images/shape7.png";
-import ShapeSix from "../../../../assets/Images/shape6.png";
+
 
 
 function Calender() {
@@ -32,16 +30,6 @@ function Calender() {
            </p>
                
       </div>
-      <img
-        src={ShapeSeven}
-        alt="ghorbani-dev.ir"
-        className="absolute -left-30 md:-left-52 bottom-0 z-10"
-      />
-      <img
-        src={ShapeSix}
-        alt="ghorbani-dev.ir"
-        className="absolute -left-10 md:-left-40 -bottom-28 animate-fullRotateY z-10"
-      />
     </Box>
   )
 }

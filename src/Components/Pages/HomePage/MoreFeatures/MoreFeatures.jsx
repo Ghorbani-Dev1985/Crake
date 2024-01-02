@@ -4,6 +4,9 @@ import Calender from "./Calender";
 import OldComments from "./OldComments";
 import CodeReview from "./CodeReview";
 import ProfessionalStaff from "./ProfessionalStaff";
+import ShapeSeven from "../../../../assets/Images/shape7.png";
+import ShapeSix from "../../../../assets/Images/shape6.png";
+import { Box } from "@mui/system";
 
 function MoreFeatures() {
   return (
@@ -19,6 +22,18 @@ function MoreFeatures() {
         <CodeReview />
         <ProfessionalStaff />
       </div>
+      <Box className="absolute left-0 top-96 z-10">
+      <img
+        src={ShapeSeven}
+        alt="ghorbani-dev.ir"
+        className="object-fill"
+      />
+      <img
+        src={ShapeSix}
+        alt="ghorbani-dev.ir"
+        className="absolute left-0 -bottom-25 animate-fullRotateY z-10"
+      />
+      </Box>
     </section>
   );
 }
