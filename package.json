@@ -23,10 +23,10 @@
     "react-router-dom": "^6.15.0",
     "react-toggle-dark-mode": "^1.1.1",
     "styled-components": "^5.3.11",
+    "stylis-plugin-rtl": "^2.1.1",
     "swiper": "^11.0.4"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.4",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",

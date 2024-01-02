@@ -4,6 +4,7 @@ import PanelServices from './PanelServices/PanelServices'
 import MoreFeatures from './MoreFeatures/MoreFeatures'
 import JoinUS from '../../JoinUS/JoinUS'
 import UserCTA from '../../UserCTA/UserCTA'
+import RegisterForm from '../../RegisterForm/RegisterForm'
 
 function HomePage() {
   return (
@@ -13,6 +14,7 @@ function HomePage() {
     <MoreFeatures />
     <JoinUS />
     <UserCTA />
+    <RegisterForm />
     </>
   )
 }
