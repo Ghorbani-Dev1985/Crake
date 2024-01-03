@@ -61,14 +61,14 @@ function AllTools() {
     setValue(index);
   };
   return (
-    <section className="bg-[#F9FAFC] relative">
+    <section className="bg-slate-50 relative pb-24 z-20">
       <Box className="container">
         <SectionTitle
           title=" ابزار برای همه"
           subtitle="موارد متفاوت در ابزارها وجود دارد که می تواند نیازهای شما را برآورده نمایید"
           titleStyle="main"
         />
-        <Box className="bg-white rounded-lg shadow-lg min-h-24 my-8 p-2">
+        <Box className="bg-white rounded-lg shadow-lg min-h-24 my-25 p-2">
           {/* Tab */}
           <Box className="w-full flex justify-evenly items-center">
             <Box className="w-full" sx={{ bgcolor: "background.paper" }}>
@@ -116,6 +116,23 @@ function AllTools() {
             </Box>
           </Box>
         </Box>
+        {/* Bubbles */}
+        <div className="bubble-animate z-20">
+                <div className="circle small square1"></div>
+                <div className="circle small square2"></div>
+                <div className="circle small square3"></div>
+                <div className="circle small square4"></div>
+                <div className="circle small square5"></div>
+                <div className="circle medium square1"></div>
+                <div className="circle medium square2"></div>
+                <div className="circle medium square3"></div>
+                <div className="circle medium square4"></div>
+                <div className="circle medium square5"></div>
+                <div className="circle large square1"></div>
+                <div className="circle large square2"></div>
+                <div className="circle large square3"></div>
+                <div className="circle large square4"></div>
+            </div>
       </Box>
     </section>
   );
