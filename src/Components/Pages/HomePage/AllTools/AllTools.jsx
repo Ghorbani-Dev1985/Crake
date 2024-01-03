@@ -7,6 +7,7 @@ import AnalyticsIcon from "@mui/icons-material/Analytics";
 import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import DoneIcon from '@mui/icons-material/Done';
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
@@ -87,7 +88,7 @@ function AllTools() {
                   <Tab {...a11yProps(2)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><CalendarMonthIcon className="text-purple-800 size-12"/></div>} label=" تقویم"/>
 
                   <Tab {...a11yProps(3)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><ReceiptLongIcon className="text-purple-800 size-12"/></div>} label=" صورتحساب"/>
-                  <Tab {...a11yProps(4)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><ReceiptLongIcon className="text-purple-800 size-12"/></div>} label=" گزارش نویسی"/>
+                  <Tab {...a11yProps(4)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><StickyNote2Icon className="text-purple-800 size-12"/></div>} label=" گزارش نویسی"/>
                 </Tabs>
               </AppBar>
               <SwipeableViews
@@ -96,20 +97,20 @@ function AllTools() {
                 onChangeIndex={handleChangeIndex}
               >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                <TabPanelContent title="" />
+                <TabPanelContent title="داشبورد" description="داشبوردی با استانداردهای طراحی و کاربر پسند با دسترسی حرفه ای و کلیه امکانات مورد نیاز اولیه جهت دسترسی به امکانات وب اپلیکیشن می باشد که خواسته های شما را اجرایی می سازد" liOne="طراحی خلاقانه" liTwo="رتینا آماده" liThree=" طراحی مدرن" liFour="بازاریابی دیجیتال و نام تجاری" img={FeatureImg} />
                   
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                صندوق ورودی
+                <TabPanelContent title="صندوق ورودی" description="صندوق ورودی با استانداردهای طراحی و کاربر پسند با دسترسی حرفه ای و کلیه امکانات مورد نیاز اولیه جهت دسترسی به امکانات وب اپلیکیشن می باشد که خواسته های شما را اجرایی می سازد" liOne=" سرعت بالا" liTwo=" امنیت مناسب" liThree="  فضای ذخیره سازی" liFour="طراحی حرفه ای" img={FeatureImg} />
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                تقویم             
+                <TabPanelContent title="تقویم" description="تقویم فارسی  با استانداردهای طراحی و کاربر پسند با دسترسی حرفه ای و کلیه امکانات مورد نیاز اولیه جهت دسترسی به امکانات وب اپلیکیشن می باشد که خواسته های شما را اجرایی می سازد" liOne="  فارسی شده" liTwo="  ذخیره تاریخ آینده" liThree=" ثبت قرار ملاقات" liFour="  یادآور حرفه ای" img={FeatureImg} />             
                     </TabPanel>
                     <TabPanel value={value} index={3} dir={theme.direction}>
-                صورتحساب             
+                    <TabPanelContent title="صورتحساب" description=" صورتحساب با فونت فارسی با استانداردهای طراحی و کاربر پسند با دسترسی حرفه ای و کلیه امکانات مورد نیاز اولیه جهت دسترسی به امکانات وب اپلیکیشن می باشد که خواسته های شما را اجرایی می سازد" liOne="   انتخاب فونت" liTwo="    استاندارد پرینتر حرارتی" liThree=" تغییر قالب چاپ  " liFour="    ثبت لوگوی کسب و کار" img={FeatureImg} />   
                     </TabPanel>
                     <TabPanel value={value} index={4} dir={theme.direction}>
-                گزارش نویسی             
+                    <TabPanelContent title=" گزارش نویسی  " description=" گزارش نویسی با فونت فارسی با استانداردهای طراحی و کاربر پسند با دسترسی حرفه ای و کلیه امکانات مورد نیاز اولیه جهت دسترسی به امکانات وب اپلیکیشن می باشد که خواسته های شما را اجرایی می سازد" liOne="    فونت متفاوت" liTwo="    قالب آماده گزارش  " liThree=" ورود و خروج دیتا " liFour="    تولید گزارش بر اساس نمودار "  img={FeatureImg} />                         
                     </TabPanel>
               </SwipeableViews>
             </Box>
@@ -142,7 +143,7 @@ const TabPanelContent = ({title , description , liOne , liTwo , liThree , liFour
       <Typography className="text-gray-500">
       {description}
       </Typography>
-        <ul className="text-gray-500 my-4">
+        <ul className="text-gray-500 my-4 space-y-3">
           <li className="flex items-center gap-2">
            <DoneIcon className="text-emerald-500"/>
            <span>{liOne} </span>
