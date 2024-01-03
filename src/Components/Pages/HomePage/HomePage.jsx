@@ -6,6 +6,7 @@ import JoinUS from '../../JoinUS/JoinUS'
 import UserCTA from '../../UserCTA/UserCTA'
 import RegisterForm from '../../RegisterForm/RegisterForm'
 import AllTools from './AllTools/AllTools'
+import Counts from './Counts/Counts'
 
 function HomePage() {
   return (
@@ -17,6 +18,7 @@ function HomePage() {
     <UserCTA />
     <RegisterForm />
     <AllTools />
+     <Counts />
     </>
   )
 }

@@ -73,6 +73,7 @@ module.exports = {
         green: '0 40px 40px 0 rgba(0, 128, 0, 0.4)',
         orange: '0 40px 40px 0 rgba(255, 138, 115, 0.4)',
         yellow: '0 40px 40px 0 rgba(224, 149, 32, 0.4)',
+        countBox: '0 10px 55px 5px rgba(137, 173, 255, 0.35)',
       },
       borderRadius: {
         "4xl": "2rem",
