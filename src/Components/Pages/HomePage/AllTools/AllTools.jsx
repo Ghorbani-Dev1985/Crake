@@ -7,10 +7,13 @@ import AnalyticsIcon from "@mui/icons-material/Analytics";
 import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import DoneIcon from '@mui/icons-material/Done';
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
 import { AppBar, Tabs, Tab } from "@mui/material";
+import FeatureImg from './../../../../assets/Images/features-img1.png'
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -93,7 +96,8 @@ function AllTools() {
                 onChangeIndex={handleChangeIndex}
               >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                داشبورد
+                <TabPanelContent title="" />
+                  
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                 صندوق ورودی
@@ -128,3 +132,40 @@ const ToolsName = ({ icon}) => {
   );
 };
 export { ToolsName };
+
+
+const TabPanelContent = ({title , description , liOne , liTwo , liThree , liFour , img}) => {
+  return (
+    <Box className="flex-between my-8">
+    <Box className="flex flex-1 flex-col">
+      <Typography className="font-DanaBold text-xl mb-5">{title}</Typography>
+      <Typography className="text-gray-500">
+      {description}
+      </Typography>
+        <ul className="text-gray-500 my-4">
+          <li className="flex items-center gap-2">
+           <DoneIcon className="text-emerald-500"/>
+           <span>{liOne} </span>
+          </li>
+          <li className="flex items-center gap-2">
+           <DoneIcon className="text-emerald-500"/>
+           <span>{liTwo}  </span>
+          </li>
+          <li className="flex items-center gap-2">
+           <DoneIcon className="text-emerald-500"/>
+           <span> {liThree}  </span>
+          </li>
+          <li className="flex items-center gap-2">
+           <DoneIcon className="text-emerald-500"/>
+           <span> {liFour} </span>
+          </li>
+        </ul>
+      </Box>
+    <Box className="flex flex-1">
+      <img src={img} alt="ghorbani-dev.ir" className="object-fill w-[500px] mx-auto" />
+    </Box>
+    </Box>
+  )
+}
+
+export {TabPanelContent}
