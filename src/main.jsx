@@ -14,6 +14,19 @@ const CustomTheme = createTheme({
       main: '#a855f7'
     },
   },
+  direction: 'rtl',
+  typography: {
+    fontFamily: [
+      'Dana',
+      'Tahoma'
+    ].join(','),
+    letterSpacing: 'normal',
+    fontSize : 16,
+    htmlFontSize: 16,
+  },
+  shape: {
+    borderRadius: 8,
+  },
   overrides: {
     MuiInputLabel: { // Name of the component ⚛️ / style sheet
       root: { // Name of the rule
