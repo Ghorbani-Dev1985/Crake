@@ -28,7 +28,6 @@ import SectionTitle from "../common/SectionTitle/SectionTitle";
 import AnimateButton from "../common/AnimateButton/AnimateButton";
 
 function Header(props) {
-  console.log(props);
   return (
     <>
       {/* Logo & Nav - Mobile */}

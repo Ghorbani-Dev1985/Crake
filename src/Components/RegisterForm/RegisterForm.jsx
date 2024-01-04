@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import SectionTitle from '../common/SectionTitle/SectionTitle'
 import { FormControl } from '@mui/base'
 import { Alert, IconButton, InputAdornment, TextField , Button} from '@mui/material'
-import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { Visibility, VisibilityOff , AccountCircle , PhoneAndroid , Person} from '@mui/icons-material'
 import RtlProvider from './../common/RtlProvider/RtlProvider'
 import axios from 'axios'
 
@@ -21,20 +21,19 @@ function RegisterForm() {
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
-    const registerHandler = (event) => {
+    const registerHandler = async (event) => {
       event.preventDefault();
       let newUserInfos = {
         firstName,
         lastName,
-        userName,
         phoneNumber,
+        userName,
         password
       }
+      console.log(newUserInfos)
     if(firstName && lastName && userName && phoneNumber && password){
-      axios.post('http://localhost:2000/api/users' , {
-        body: JSON.stringify(newUserInfos),
-      })
-      .then(response => console.log(response.config.data))
+     await axios.post('http://localhost:2000/api/users' , newUserInfos)
+      .then(response => console.log(response))
       .catch(function (error) {
        console.log(error);
      });
@@ -57,10 +56,50 @@ function RegisterForm() {
             <Box className="flex-center my-16">
             <form onSubmit={registerHandler} className='w-full max-w-lg'>
             <FormControl sx={{ m: 1 }} variant="outlined" className='flex flex-col gap-5 bg-purple-50 shadow-orange rounded-lg p-10'>
-            <TextField id="RegisterFirstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} label={<span>نام <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' />
-            <TextField id="RegisterLastName" value={lastName} onChange={(event) => setLastName(event.target.value)} label={<span>نام خانوادگی <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' />
-            <TextField id="RegisterLastName" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} label={<span>شماره همراه <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' />
-            <TextField id="RegisterUserName" value={userName} onChange={(event) => setUserName(event.target.value)} label={<span>نام کاربری <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' />
+            <TextField id="RegisterFirstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} label={<span>نام <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                    <IconButton
+                      edge="end"
+                    >
+                     <Person />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}/>
+            <TextField id="RegisterLastName" value={lastName} onChange={(event) => setLastName(event.target.value)} label={<span>نام خانوادگی <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                    <IconButton
+                      edge="end"
+                    >
+                     <Person />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}/>
+            <TextField id="RegisterLastName" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} label={<span>شماره همراه <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                    <IconButton
+                      edge="end"
+                    >
+                     <PhoneAndroid />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }} />
+            <TextField id="RegisterUserName" value={userName} onChange={(event) => setUserName(event.target.value)} label={<span>نام کاربری <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' InputProps={{
+                endAdornment: (
+                    <InputAdornment position="end">
+                    <IconButton
+                      edge="end"
+                    >
+                     <AccountCircle />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}/>
             <TextField id="RegisterPassword" value={password} onChange={(event) => setPassword(event.target.value)} type={showPassword ? 'text' : 'password'} label={<span>کلمه عبور <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' 
             InputProps={{
                 endAdornment: (
