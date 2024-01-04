@@ -4,7 +4,7 @@ const crakeDB = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'crake',
+    database: 'crakeApp',
 })
 
 module.exports = crakeDB;
