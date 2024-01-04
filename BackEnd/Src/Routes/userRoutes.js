@@ -10,7 +10,8 @@ userRoutes.post("/", (req, res) => {
     } else {
       console.log("Connection Successfully...");
       let date = new Date().toLocaleDateString("fa-IR");
-      let newUserInsertQuery = `INSERT INTO users VALUES (Null, "${date}" ,"${body.firstName}","${body.lastName}", "${body.userName}" ,"${body.password}")`;
+      console.log(body)
+      let newUserInsertQuery = `INSERT INTO users VALUES (Null, "${date}" ,"${body.firstName}","${body.lastName}", "${body.phoneNumber}" , "${body.userName}" ,"${body.password}")`;
       crakeDB.query(newUserInsertQuery, (error, result) => {
         if (error) {
           console.log("Insert User Failed..." , error);

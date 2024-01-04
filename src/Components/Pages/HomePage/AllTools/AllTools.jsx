@@ -29,7 +29,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={'span'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -143,9 +143,9 @@ export default AllTools;
 const ToolsName = ({ icon}) => {
   return (
     <Box className="flex flex-col gap-8">
-      <Typography className="flex-center size-16 rounded-full bg-purple-100 text-purple-800">
+      <Box className="flex-center size-16 rounded-full bg-purple-100 text-purple-800">
         {icon}
-      </Typography>
+      </Box>
     </Box>
   );
 };
@@ -156,10 +156,10 @@ const TabPanelContent = ({title , description , liOne , liTwo , liThree , liFour
   return (
     <Box className="flex-between my-8">
     <Box className="flex flex-1 flex-col">
-      <Typography className="font-DanaBold text-xl mb-5">{title}</Typography>
-      <Typography className="text-gray-500">
+      <Box className="font-DanaBold text-xl mb-5">{title}</Box>
+      <Box className="text-gray-500">
       {description}
-      </Typography>
+      </Box>
         <ul className="text-gray-500 my-4 space-y-3">
           <li className="flex items-center gap-2">
            <DoneIcon className="text-emerald-500"/>

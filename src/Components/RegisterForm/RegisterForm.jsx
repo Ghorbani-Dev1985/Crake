@@ -2,20 +2,49 @@ import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import SectionTitle from '../common/SectionTitle/SectionTitle'
 import { FormControl } from '@mui/base'
-import { IconButton, InputAdornment, TextField } from '@mui/material'
-import Button from '@mui/material/Button';
+import { Alert, IconButton, InputAdornment, TextField , Button} from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import RtlProvider from './../common/RtlProvider/RtlProvider'
+import axios from 'axios'
 
 
 function RegisterForm() {
     const [showPassword, setShowPassword] = useState(false);
+    const [firstName , setFirstName] = useState('');
+    const [lastName , setLastName] = useState('');
+    const [userName , setUserName] = useState('');
+    const [phoneNumber , setPhoneNumber] = useState('');
+    const [password , setPassword] = useState('');
+    const [showError , setShowError] = useState(false)
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
     const handleMouseDownPassword = (event) => {
       event.preventDefault();
     };
-  
+    const registerHandler = (event) => {
+      event.preventDefault();
+      let newUserInfos = {
+        firstName,
+        lastName,
+        userName,
+        phoneNumber,
+        password
+      }
+    if(firstName && lastName && userName && phoneNumber && password){
+      axios.post('http://localhost:2000/api/users' , {
+        body: JSON.stringify(newUserInfos),
+      })
+      .then(response => console.log(response.config.data))
+      .catch(function (error) {
+       console.log(error);
+     });
+    }else{
+       setShowError(true)
+       setTimeout(() => {
+        setShowError(false)
+       }, 2000);
+    }
+    }
   return (
     <Box className="bg-registerFormBg">
         <Box className="container">
@@ -26,11 +55,13 @@ function RegisterForm() {
         />
         <RtlProvider>
             <Box className="flex-center my-16">
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined" className='w-full max-w-md flex flex-col gap-5 bg-purple-50 shadow-orange rounded-lg p-10'>
-            <TextField id="RegisterFirstName" label="نام" variant="outlined" size='small' />
-            <TextField id="RegisterLastName" label="نام خانوادگی" variant="outlined" size='small' />
-            <TextField id="RegisterUserName" label="کلمه کاربری" variant="outlined" size='small' />
-            <TextField id="RegisterPassword"  type={showPassword ? 'text' : 'password'} label="کلمه عبور" variant="outlined" size='small' 
+            <form onSubmit={registerHandler} className='w-full max-w-lg'>
+            <FormControl sx={{ m: 1 }} variant="outlined" className='flex flex-col gap-5 bg-purple-50 shadow-orange rounded-lg p-10'>
+            <TextField id="RegisterFirstName" value={firstName} onChange={(event) => setFirstName(event.target.value)} label={<span>نام <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' />
+            <TextField id="RegisterLastName" value={lastName} onChange={(event) => setLastName(event.target.value)} label={<span>نام خانوادگی <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' />
+            <TextField id="RegisterLastName" value={phoneNumber} onChange={(event) => setPhoneNumber(event.target.value)} label={<span>شماره همراه <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' />
+            <TextField id="RegisterUserName" value={userName} onChange={(event) => setUserName(event.target.value)} label={<span>نام کاربری <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' />
+            <TextField id="RegisterPassword" value={password} onChange={(event) => setPassword(event.target.value)} type={showPassword ? 'text' : 'password'} label={<span>کلمه عبور <span className='text-rose-500 text-sm'>*</span></span>} variant="outlined" size='small' 
             InputProps={{
                 endAdornment: (
                     <InputAdornment position="end">
@@ -47,8 +78,13 @@ function RegisterForm() {
               }}
             
             />
-             <Button variant="contained"> ثبت نام </Button>
+             <Button type='submit' variant="contained"> ثبت نام </Button>
+             {
+              showError &&
+              <Alert severity="error">لطفا فرم را کامل تکمیل نمایید</Alert>
+             }
         </FormControl>  
+             </form>
             </Box>
            
         </RtlProvider>
