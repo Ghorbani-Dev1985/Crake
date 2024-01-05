@@ -14,8 +14,8 @@ function HomePage() {
       <OurFeatures />
         <PanelServices />
     <MoreFeatures />
-   {/* <JoinUS />
-    <UserCTA />
+    <JoinUS />
+   {/* <UserCTA />
     <RegisterForm />
     <AllTools />
      <Counts /> */}
