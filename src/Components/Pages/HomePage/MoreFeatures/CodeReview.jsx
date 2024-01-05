@@ -7,9 +7,9 @@ import ShapeEight from './../../../../assets/Images/svgs/shape8-2.svg'
 
 function CodeReview() {
   return (
-    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 mt-60 mb-12'>
+    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 mt-60 mb-12 p-8'>
        <Box className='flex-center'>
-      <img src={Overview}  alt='ghorbani-dev.ir' className='md:size-72 lg:size-auto' />
+      <img src={Overview}  alt='ghorbani-dev.ir' className='size-80 lg:size-auto' />
     </Box>
     <Box className='flex flex-col gap-10 relative z-20 px-4'>
          <p className='flex-center size-10 bg-purple-200 text-purple-500 rounded-full'>

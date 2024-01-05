@@ -9,7 +9,7 @@ import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 
 function OldComments() {
   return (
-    <Box className="grid grid-cols-1 md:grid-cols-2 gap-20">
+    <Box className="grid grid-cols-1 md:grid-cols-2 gap-10 p-8">
       <Box className="space-y-5 mx-4">
         <Typography className='flex-center size-10 bg-purple-200 text-purple-500 rounded-full'>
                  <AnchorIcon />
@@ -29,21 +29,21 @@ function OldComments() {
            <AnimateButton BtnText="ادامه مطلب"/>
            </Typography>   
       </Box>
-      <Box className="md:max-w-lg flex-center gap-12 md:gap-0 md:flex-between animate-moveBounce">
-                <Box className="size-40 md:size-50 relative flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l from-emerald-600 to-emerald-600 text-white shadow-green">
-                  <SentimentSatisfiedAltIcon className='text-6xl' />
+      <Box className="md:max-w-lg flex-center gap-6 animate-moveBounce">
+                <Box className="size-30 md:size-40 relative flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l from-emerald-600 to-emerald-600 text-white shadow-green">
+                  <SentimentSatisfiedAltIcon className='text-3xl md:text-6xl' />
                   <Typography>مدیریت</Typography>
-                <Box className="size-40 md:size-50 flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l absolute top-36 md:top-44 left-5 md:left-11 from-pink-500 to-pink-400 text-white shadow-orange">
-                  <PhonelinkSetupOutlinedIcon className='text-6xl' />
+                <Box className="size-30 md:size-40 flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l absolute top-32 md:top-44 left-5 md:left-11 from-pink-500 to-pink-400 text-white shadow-orange">
+                  <PhonelinkSetupOutlinedIcon className='text-3xl md:text-6xl' />
                   <Typography>طراحی موبایل</Typography>
                 </Box>
                 </Box>
-                <Box className="size-40 md:size-50 relative flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l from-yellow-600 to-yellow-600 text-white shadow-yellow">
-                  <SentimentSatisfiedAltIcon className='text-6xl' />
+                <Box className="size-30 md:size-40 relative flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l from-yellow-600 to-yellow-600 text-white shadow-yellow">
+                  <SentimentSatisfiedAltIcon className='text-3xl md:text-6xl' />
                   <Typography>جامعه پسند</Typography>
-                <Box className="size-40 md:size-50 flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l absolute top-36 md:top-44 left-5 md:left-11 from-teal-500 to-teal-400 text-white shadow-orange">
-                  <AttachMoneyOutlinedIcon className='text-6xl' />
-                  <Typography> قیمت گذاری صادقانه</Typography>
+                <Box className="size-30 md:size-40 flex flex-col justify-center items-center gap-2 rounded-md bg-gradient-to-l absolute top-32 md:top-44 left-5 md:left-11 from-teal-500 to-teal-400 text-white shadow-orange">
+                  <AttachMoneyOutlinedIcon className='text-3xl md:text-6xl' />
+                  <Typography className='text-center'> قیمت گذاری صادقانه</Typography>
                 </Box>
                 </Box>
       </Box>

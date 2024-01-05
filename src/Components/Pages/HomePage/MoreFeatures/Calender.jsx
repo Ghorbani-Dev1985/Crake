@@ -8,9 +8,9 @@ import AnimateButton from './../../../common/AnimateButton/AnimateButton'
 
 function Calender() {
   return (
-    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 mt-20'>
+    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 mt-20 mb-8 z-20'>
       <div className='flex-center'>
-        <img src={CalenderImg}  alt='ghorbani-dev.ir' className='md:size-72 lg:size-auto' />
+        <img src={CalenderImg}  alt='ghorbani-dev.ir' className='size-80 lg:size-auto' />
       </div>
       <div className='flex flex-col gap-10 relative z-20 px-4'>
            <p className='flex-center size-10 bg-purple-200 text-purple-500 rounded-full'>

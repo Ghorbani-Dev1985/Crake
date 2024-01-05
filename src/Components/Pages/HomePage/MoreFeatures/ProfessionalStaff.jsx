@@ -4,14 +4,13 @@ import Overview from "./../../../../assets/Images/overview-4.png"
 import MessageIcon from '@mui/icons-material/Message';
 import AnimateButton from '../../../common/AnimateButton/AnimateButton';
 import ShapeEleven from '../../../../assets/Images/svgs/shape11.svg'
-import ShapeThree from '../../../../assets/Images/shape3.png'
 
 
 function ProfessionalStaff() {
   return (
-    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10'>
+    <Box className='relative grid grid-cols-1 md:grid-cols-2 gap-10 p-8'>
       
-    <Box className='flex flex-col gap-10 relative z-20 px-4 pb-56'>
+    <Box className='flex flex-col gap-10 relative z-20 px-4 md:pb-56'>
          <p className='flex-center size-10 bg-amber-200 text-amber-500 rounded-full'>
                     <MessageIcon />
          </p>
@@ -26,13 +25,10 @@ function ProfessionalStaff() {
          </ul>
          <Typography>
          <AnimateButton BtnText="ادامه مطلب"/>
-         </Typography>
-         <img src={ShapeThree} alt="ghorbani-dev.ir" className="absolute -right-0 z-10 -bottom-4 md:bottom-10 animate-moveBounce" />   
+         </Typography> 
     </Box>
     <Box className='flex-center relative'>
-      <img src={Overview}  alt='ghorbani-dev.ir' className='md:size-72 lg:size-96 relative z-20' />
-      <img src={ShapeEleven} alt="ghorbani-dev.ir" className="absolute z-10 size-24 md:size-36 lg:size-auto -left-12 md:left-12 opacity-10 bottom-28 md:bottom-0 lg:bottom-20 animate-fullRotate" />
-            <div className="size-20 md:size-36 bg-purple-500 absolute z-10 opacity-10 -left-12 md:left-12 bottom-16 md:-bottom-20 lg:bottom-0 rounded-full animate-moveBounce"></div>
+      <img src={Overview}  alt='ghorbani-dev.ir' className='size-80 lg:size-96 relative z-20' />
     </Box>
   </Box>
   )

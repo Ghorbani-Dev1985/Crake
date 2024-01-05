@@ -26,7 +26,7 @@ function MoreFeatures() {
       <img
         src={ShapeSeven}
         alt="ghorbani-dev.ir"
-        className="object-fill"
+        className="object-fill opacity-70"
       />
       <img
         src={ShapeSix}

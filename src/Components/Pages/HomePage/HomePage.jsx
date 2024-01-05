@@ -13,8 +13,8 @@ function HomePage() {
     <>
       <OurFeatures />
         <PanelServices />
-   {/* <MoreFeatures />
-    <JoinUS />
+    <MoreFeatures />
+   {/* <JoinUS />
     <UserCTA />
     <RegisterForm />
     <AllTools />

@@ -22,7 +22,7 @@ function PanelServices() {
             <Service icon={<LocalPhoneIcon className="size-8"/>} title="خدمات تلفن رایگان" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<RedeemIcon className="size-8"/>} title="هدیه رایگان روزانه" subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
             <Service icon={<QrCode2Icon className="size-8"/>} title="اسکنر QR کد " subTitle="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."/>
-            <Box className="absolute left-0 bottom-1">
+            <Box className="absolute left-0 md:left-8 bottom-1">
             <img src={ShapeEleven} alt="ghorbani-dev.ir" className="size-20 md:size-36 opacity-20 animate-fullRotate" />
             <div className="size-20 md:size-36 bg-mainColor opacity-20 rounded-full animate-moveBounce"></div>
             </Box>
