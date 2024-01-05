@@ -1,9 +1,9 @@
 import React from 'react'
 import { BiCheckDouble , BiCctv , BiGridAlt , BiLock , BiMouseAlt , BiWind} from "react-icons/bi";
-
+import { Box } from '@mui/material';
 function OurFeatureCards() {
   return (
-    <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-3 gap-12 my-20 relative z-30'>
+    <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-3 gap-12 my-20 relative'>
        <OurFeatureCard Icon={<BiCheckDouble />} Title="دسترسی سریع" Description="در زمان بسیار کوتاه دسترسی سریعی به امکانات داشته باشید تا بتوانید بهره وری بهتری را تجربه کنید"/>
        <OurFeatureCard Icon={<BiGridAlt />} Title=" مدیریت راحت" Description=" مدیریت راحت و حرفه ای و تجربه یک ابزار مدیریتی مدرن تا بتوانید عملکرد مناسبی داشته باشید"/>
        <OurFeatureCard Icon={<BiLock />} Title="  امنیتی" Description=" اجرای کلیه موارد امنیتی و زیر ساختی جهت برقراری بستری امن برای اجرای پروژه ها شما"/>
@@ -19,7 +19,7 @@ export default OurFeatureCards;
 
 function OurFeatureCard ({Icon , Title , Description}) {
   return(
-     <div className='flex flex-col items-center cursor-pointer group hover:-mt-4 transition-all ease-linear duration-300'>
+     <div className='flex flex-col items-center cursor-pointer group hover:-mt-4 transition-all ease-linear duration-300 relative z-30'>
        <p className='flex-center size-20 rounded-full bg-purple-100 group-hover:bg-purple-800 group-hover:text-white transition-colors text-purple-400 text-4xl mb-3'>
           {Icon}
        </p>
