@@ -11,14 +11,14 @@ import Counts from './Counts/Counts'
 function HomePage() {
   return (
     <>
-    <OurFeatures />
+    {/* <OurFeatures />
     <PanelServices />
     <MoreFeatures />
     <JoinUS />
     <UserCTA />
     <RegisterForm />
     <AllTools />
-     <Counts />
+     <Counts /> */}
     </>
   )
 }

@@ -34,6 +34,7 @@ function Header(props) {
       <MobileNav />
       <header className="bg-mainColor text-white relative min-h-screen">
         <div className="container py-8">
+          <Box className="w-full relative">
           <img
             src={ShapeOne}
             alt="ghorbani-dev.ir"
@@ -44,6 +45,7 @@ function Header(props) {
             alt="ghorbani-dev.ir"
             className="absolute right-0 md:top-20 h-24 md:h-auto animate-moveBounce opacity-20"
           />
+          </Box>
           {/* Logo & Nav - Desktop */}
           <div className="hidden md:flex-between">
             <div>
@@ -115,10 +117,10 @@ function Header(props) {
               <img
                 src={MainImage}
                 alt="ghorbani-dev.ir"
-                className="object-cover sm:size-72 md:size-auto"
+                className="object-cover size-60 md:size-auto"
               />
             </div>
-            <div className="flex flex-1 flex-col">
+            <div className="flex flex-1 flex-col relative">
               <h1 className="font-MorabbaBold text-xl md:text-5xl/[5rem] mb-4 text-center">
                 استراتژی کسب و کار خود را در یک مکان حرفه ای مدیریت کنید
               </h1>
@@ -126,6 +128,14 @@ function Header(props) {
                 شور و شوق ما به کار سخت و ارائه نتایج عالی است. این می تواند
                 نیازهای مشتریان خود را حل کند و نوآوری را توسعه دهد.
               </p>
+              <div className="flex-center absolute right-0 left-0 lg:bottom-14 z-0">
+                <img
+            src={ShapeFour}
+            alt="ghorbani-dev.ir"
+            className="opacity-30 size-44 md:size-60 xl:size-auto animate-fullRotate"
+          />
+              </div>
+                        
               <div className="flex-between max-w-lg mx-auto my-10 gap-5">
                <AnimateButton BtnText="شروع کنید"/>
                 <button
@@ -156,11 +166,7 @@ function Header(props) {
               </div>
             </div>
           </div>
-          <img
-            src={ShapeFour}
-            alt="ghorbani-dev.ir"
-            className="absolute right-0 left-0 mx-auto bottom-48 lg:-left-[40rem] md:bottom-0 lg:bottom-72 size-72 md:size-auto z-0 opacity-30 animate-fullRotate rounded-full"
-          />
+
           <img
             src={ShapeThree}
             alt="ghorbani-dev.ir"

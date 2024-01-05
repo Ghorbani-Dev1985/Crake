@@ -29,7 +29,7 @@ module.exports = {
           600: "#967259",
           900: "#634832",
         },
-        mainColor: '#3b0764',
+        mainColor: '#13c4a1',
         secondColor: '#FF8A73'
       },
       animation: {
