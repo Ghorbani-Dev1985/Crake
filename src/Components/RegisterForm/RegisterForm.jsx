@@ -44,19 +44,28 @@ function RegisterForm() {
   };
   const registerHandler = async (event) => {
     event.preventDefault();
-    let newUserInfos = {
+    let newUserInfos = JSON.stringify({
       firstName,
       lastName,
       phoneNumber,
       userName,
       password,
-    };
+    });
     console.log(newUserInfos);
-    if (firstName && lastName && userName && phoneNumber && password && firstName.length > 3 && lastName.length > 4 && phoneNumber.length > 10 && userName.length > 6 && password.length > 8) {
+    if (firstName && lastName && userName && phoneNumber && password && firstName.length > 3 && lastName.length > 3 && phoneNumber.length > 9 && userName.length > 6 && password.length > 8) {
       await axios
-        .post("http://localhost:2000/api/users", newUserInfos)
+        .post("http://localhost:2000/api/users/newUser", newUserInfos , {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
         .then((response) => {
           toast.success("ثبت نام شما با موفقیت انجام شد");
+          setFirstName('')
+          setLastName('')
+          setPhoneNumber('')
+          setUserName('')
+          setPassword('')
           console.log(response);
         })
         .catch(function (error) {
@@ -76,7 +85,7 @@ function RegisterForm() {
   };
   const lastNameInputHandler = (event) => {
     setLastName(event.target.value);
-    if (lastName.length < 4) {
+    if (lastName.length < 3) {
       console.log(lastName.length);
       setLastNameShowNotValidError(true);
     } else {
@@ -128,6 +137,7 @@ function RegisterForm() {
                   id="RegisterFirstName"
                   value={firstName}
                   onChange={(event) => firstNameInputHandler(event)}
+                  autoComplete='off'
                   label={
                     <span>
                       نام <span className="text-rose-500 text-sm">*</span>
@@ -157,6 +167,7 @@ function RegisterForm() {
                   id="RegisterLastName"
                   value={lastName}
                   onChange={(event) => lastNameInputHandler(event)}
+                  autoComplete='off'
                   label={
                     <span>
                       نام خانوادگی{" "}
@@ -196,6 +207,7 @@ function RegisterForm() {
                       .slice(0, e.target.maxLength);
                   }}
                   onChange={(event) => phoneNumberInputHandler(event)}
+                  autoComplete='off'
                   label={
                     <span>
                       شماره همراه{" "}
@@ -226,6 +238,7 @@ function RegisterForm() {
                   id="RegisterUserName"
                   value={userName}
                   onChange={(event) => userNameInputHandler(event)}
+                  autoComplete='off'
                   label={
                     <span>
                       نام کاربری

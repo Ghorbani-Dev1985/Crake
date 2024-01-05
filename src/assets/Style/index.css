@@ -510,5 +510,5 @@
   margin: 0 auto;
 }
 .css-heg063-MuiTabs-flexContainer{
-  overflow-x: scroll;
+  @apply overflow-x-scroll lg:overflow-x-auto;
 }

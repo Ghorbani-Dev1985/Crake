@@ -22,10 +22,11 @@ import {
   BiMenuAltRight,
 } from "react-icons/bi";
 import MobileNav from "./MobileNav";
-import { Box, Drawer } from "@mui/material";
+import { Box, Drawer, SwipeableDrawer } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
 import AnimateButton from "../common/AnimateButton/AnimateButton";
+import RtlProvider from "../common/RtlProvider/RtlProvider";
 
 function Header(props) {
   return (
@@ -182,7 +183,7 @@ function Header(props) {
 export default Header;
 
 function ContactUsDrawer() {
-  const [state, setState] = useState({ right: false });
+  const [state, setState] = useState({ left: false });
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -199,28 +200,29 @@ function ContactUsDrawer() {
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 550 }}
       role="presentation"
       className="px-4"
+      onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <SectionTitle title="  لینک های اضافی " titleStyle="" />
       <ul className="space-y-4">
         <li>
-          <Link className="text-zinc-700 hover:text-purple-900 transition-colors">
+          <Link to="/login" className="text-zinc-700 hover:text-mainColor transition-colors">
             ورود
           </Link>
         </li>
         <li>
-          <Link className="text-zinc-700 hover:text-purple-900 transition-colors">
+          <Link className="text-zinc-700 hover:text-mainColor transition-colors">
             ثبت نام
           </Link>
         </li>
         <li>
-          <Link className="text-zinc-700 hover:text-purple-900 transition-colors">
+          <Link className="text-zinc-700 hover:text-mainColor transition-colors">
             {" "}
             گفت و گو
           </Link>
         </li>
         <li>
-          <Link className="text-zinc-700 hover:text-purple-900 transition-colors">
+          <Link className="text-zinc-700 hover:text-mainColor transition-colors">
             {" "}
             خروج
           </Link>
@@ -229,7 +231,7 @@ function ContactUsDrawer() {
       <SectionTitle title=" اطلاعات تماس " titleStyle="" />
       <ul className="space-y-8">
         <li className="flex items-center gap-3">
-          <p className="flex-center size-14 text-3xl text-purple-800 rounded-md bg-purple-100">
+          <p className="flex-center size-14 text-3xl text-mainColor rounded-md bg-emerald-50">
             <BiMap />
           </p>
           <div className="flex flex-col gap-3">
@@ -238,7 +240,7 @@ function ContactUsDrawer() {
           </div>
         </li>
         <li className="flex items-center gap-3">
-          <p className="flex-center size-14 text-3xl text-purple-800 rounded-md bg-purple-100">
+          <p className="flex-center size-14 text-3xl text-mainColor rounded-md bg-emerald-50">
             <BiPhone />
           </p>
           <div className="flex flex-col gap-3">
@@ -247,7 +249,7 @@ function ContactUsDrawer() {
           </div>
         </li>
         <li className="flex items-center gap-3">
-          <p className="flex-center size-14 text-3xl text-purple-800 rounded-md bg-purple-100">
+          <p className="flex-center size-14 text-3xl text-mainColor rounded-md bg-emerald-50">
             <BiEnvelope />
           </p>
           <div className="flex flex-col gap-3">
@@ -259,16 +261,16 @@ function ContactUsDrawer() {
       <SectionTitle title="ارتباط با ما" titleStyle="" />
       <div className="flex items-center gap-2">
         <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
-          <BiLogoInstagram className="group-hover:text-purple-900 transition-colors" />
+          <BiLogoInstagram className="group-hover:text-mainColor transition-colors" />
         </Link>
         <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
-          <BiLogoFacebook className="group-hover:text-purple-900 transition-colors" />
+          <BiLogoFacebook className="group-hover:text-mainColor transition-colors" />
         </Link>
         <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
-          <BiLogoLinkedin className="group-hover:text-purple-900 transition-colors" />
+          <BiLogoLinkedin className="group-hover:text-mainColor transition-colors" />
         </Link>
         <Link className="flex-center size-14 text-3xl text-gray-400 rounded-full border border-gray-400 cursor-pointer group">
-          <BiLogoTwitter className="group-hover:text-purple-900 transition-colors" />
+          <BiLogoTwitter className="group-hover:text-mainColor transition-colors" />
         </Link>
       </div>
     </Box>
@@ -276,7 +278,7 @@ function ContactUsDrawer() {
   return (
     <>
       <button
-        onClick={toggleDrawer("right", true)}
+        onClick={toggleDrawer("left", true)}
         className="cursor-pointer bg-transparent shadow-none border-none size-10 group"
       >
         <div
@@ -292,24 +294,27 @@ function ContactUsDrawer() {
             before:content-[''] before:absolute before:size-2 before:-left-3 before:top-0 before:bg-white before:rounded-full before:transition-all before:ease-in-out before:duration-700 after:content-[''] after:absolute after:size-2 after:-left-6 after:top-0 after:bg-white after:rounded-full after:transition-all after:ease-in-out after:duration-1000 before:group-hover:opacity-0 before:group-hover:invisible before:group-hover:-translate-x-full after:group-hover:opacity-0 after:group-hover:invisible after:group-hover:-translate-x-full"
         ></div>
       </button>
+      <RtlProvider>
       <Drawer
-        anchor="right"
-        open={state["right"]}
-        onClose={toggleDrawer(false)}
+        anchor="left"
+        open={state["left"]}
+        onClose={toggleDrawer("left", false)}
+        onOpen={toggleDrawer("left", true)}
       >
-        <div className="bg-gradient-to-l flex-between from-purple-900 to-purple-400 py-10 px-4">
+        <div className="bg-gradient-to-l flex-between from-mainColor to-emerald-200 py-10 px-4">
           <img
             src={Logo}
             alt="ghorbani-dev.ir"
             className="w-44 h-auto object-cover"
           />
           <CloseIcon
-            onClick={toggleDrawer("right", false)}
+            onClick={toggleDrawer("left", false)}
             className="text-white size-8 cursor-pointer"
           />
         </div>
-        {list("right")}
+        {list("left")}
       </Drawer>
+      </RtlProvider>
     </>
   );
 }
