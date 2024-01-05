@@ -27,7 +27,7 @@ userRoutes.post("/newUser", (req, res) => {
 userRoutes.get('/all' , (req, res) => {
   crakeDB.connect((error) => {
     if (error) {
-      console.log("Connection Unsuccessfully...");
+      console.log("Connection Unsuccessfully..." , error);
     } else {
       console.log("Connection Successfully...");
       let getAllUsersQuery = 'SELECT * FROM users';
@@ -36,7 +36,7 @@ userRoutes.get('/all' , (req, res) => {
           console.log("Get All User Failed..." , error);
           res.send(null);
         } else {
-          console.log("All users..." , result);
+          console.log("All users...");
           res.send(JSON.stringify(result));
         }
       });

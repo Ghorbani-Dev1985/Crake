@@ -10,7 +10,7 @@ import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import DoneIcon from '@mui/icons-material/Done';
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
+import SwipeableViews from "react-swipeable-views-react-18-fix";
 import { useTheme } from "@mui/material/styles";
 import { AppBar, Tabs, Tab } from "@mui/material";
 import FeatureImg from './../../../../assets/Images/features-img1.png'
