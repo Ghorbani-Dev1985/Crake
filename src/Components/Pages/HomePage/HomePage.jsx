@@ -18,7 +18,7 @@ function HomePage() {
     <UserCTA />
     <RegisterForm />
     <AllTools />
-   {/*  <Counts /> */}
+    <Counts />
     </>
   );
 }
