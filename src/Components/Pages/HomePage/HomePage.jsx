@@ -12,8 +12,8 @@ function HomePage() {
   return (
     <>
       <OurFeatures />
-      {/*  <PanelServices />
-    <MoreFeatures />
+        <PanelServices />
+   {/* <MoreFeatures />
     <JoinUS />
     <UserCTA />
     <RegisterForm />
