@@ -287,9 +287,8 @@ function RegisterForm() {
                     ),
                   }}
                 />
-                <Button type="submit" variant="contained">
-                  {" "}
-                  ثبت نام{" "}
+                <Button type="submit" variant="contained" className="!text-white !text-xl">
+                  ثبت نام
                 </Button>
                 {showError && (
                   <Alert severity="error">لطفا فرم را کامل تکمیل نمایید</Alert>

@@ -27,24 +27,6 @@ const CustomTheme = createTheme({
   shape: {
     borderRadius: 8,
   },
-  overrides: {
-    MuiInputLabel: { // Name of the component ⚛️ / style sheet
-      root: { // Name of the rule
-        color: "orange",
-        "&$focused": { // increase the specificity for the pseudo class
-          color: "purple"
-        }
-      }
-    },
-    MuiTextField:{
-      root:  {
-        '& label.Mui-focused': {
-              color: '#581c87',
-              borderRadius: '10px',
-            },
-    }
-  },
-}
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
