@@ -44,4 +44,25 @@ userRoutes.get('/all' , (req, res) => {
   });
 })
 
+userRoutes.delete('/remove/:userID' , (req , res) => {
+  let userID = req.params.userID
+  crakeDB.connect((error) => {
+    if (error) {
+      console.log("Connection Unsuccessfully..." , error);
+    } else {
+      console.log("Connection Successfully...");
+      let deleteUserQuery = `DELETE FROM users WHERE id = ${userID}`;
+      crakeDB.query(deleteUserQuery, (error, result) => {
+        if (error) {
+          console.log("DELETE User Failed..." , error);
+          res.send(null);
+        } else {
+          console.log("Deleted user...");
+          res.send(JSON.stringify(result));
+        }
+      });
+    }
+  });
+})
+
 module.exports = userRoutes;

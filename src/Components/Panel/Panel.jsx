@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import {Menu , ChevronLeft , ChevronRight , Inbox , Mail , Edit , DeleteOutlineOutlined} from '@mui/icons-material';
-import { ListItem } from '@mui/material';
+import { Button, ListItem } from '@mui/material';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -18,6 +18,10 @@ import RtlProvider from '../common/RtlProvider/RtlProvider';
 import { useState } from 'react';
 import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
+import toast from 'react-hot-toast';
 
 const drawerWidth = 240;
 
@@ -89,6 +93,9 @@ function Panel() {
     const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [users , setUsers] = useState([]);
+  const [showDialog, setShowDialog] = useState(false);
+  const [getUsersData , setGetUsersData] = useState(false)
+  const [userID , setUserID] = useState('')
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -133,7 +140,7 @@ function Panel() {
     renderCell: (editID) => {
       return (
           <div className="flex-center cursor-pointer text-sky-500">
-              <Edit index={editID.row.id} />
+              <Edit />
            </div>
       );
    }
@@ -141,23 +148,42 @@ function Panel() {
   { 
     field: "deleteAction",
     headerName: 'حذف', width: 60 ,
-    renderCell: (deleteID) => {
+    renderCell: (user) => {
       return (
-          <div className="flex-center cursor-pointer text-rose-500">
-              <DeleteOutlineOutlined index={deleteID.row.id} />
+          <div onClick={() => {
+            setShowDialog(true)
+            setUserID(user.id)
+          }} className="flex-center cursor-pointer text-rose-500">
+              <DeleteOutlineOutlined />
            </div>
       );
    }
   },
   ];
+  const userDeleteHandler = async () => {
+   await axios
+    .delete(`http://localhost:2000/api/users/remove/${userID}.json`)
+    .then(response => {
+      toast.success("  کاربر مورد نظر با موفقیت حذف گردید");
+      setShowDialog(false)
+      setGetUsersData(prev => !prev)
+      console.log(response)
+    })
+    .catch((error) => {
+      toast.error(" حذف کاربر انجام نشد");
+      console.log(error);
+    });
+    console.log(userID)
+  }
   useEffect(() => {
-   axios
+  axios
    .get('http://localhost:2000/api/users/all')
    .then(response => setUsers(response.data))
-  }, [users])
+  }, [getUsersData])
   console.log(users)
   return (
     <RtlProvider>
+     
     <Box sx={{ display: 'flex' }}>
     <CssBaseline />
     <AppBar position="fixed" open={open}>
@@ -215,7 +241,7 @@ function Panel() {
     </Drawer>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <DrawerHeader />
-      <Typography className='!font-MorabbaBold !text-3xl !my-4'>لیست کاربران</Typography>
+      <Typography variant='span' className='!font-MorabbaBold !text-3xl !my-4'>لیست کاربران</Typography>
       <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid
          rows={users.map((user,index)=>{return {id:index+1,...user}})}
@@ -244,6 +270,22 @@ function Panel() {
     </Box>
     </Box>
   </Box>
+  <Dialog
+        open={showDialog}
+        onClose={() => setShowDialog(false)}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"آیا برای حذف مطمعن هستید؟"}
+        </DialogTitle>
+        <DialogActions>
+          <Button onClick={() => setShowDialog(false)} autoFocus>انصراف</Button>
+          <Button onClick={() => userDeleteHandler()} className='!text-rose-500'>
+            تایید
+          </Button>
+        </DialogActions>
+      </Dialog>
   </RtlProvider>
   )
 }
