@@ -509,3 +509,6 @@
   left: -13px !important;
   margin: 0 auto;
 }
+.css-heg063-MuiTabs-flexContainer{
+  overflow-x: scroll;
+}

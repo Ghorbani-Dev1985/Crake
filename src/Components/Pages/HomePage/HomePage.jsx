@@ -17,8 +17,8 @@ function HomePage() {
     <JoinUS />
     <UserCTA />
     <RegisterForm />
-   {/* <AllTools />
-     <Counts /> */}
+    <AllTools />
+   {/*  <Counts /> */}
     </>
   );
 }

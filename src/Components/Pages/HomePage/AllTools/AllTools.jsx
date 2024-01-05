@@ -80,15 +80,15 @@ function AllTools() {
                   aria-label="full width tabs example"
                 >
     
-                  <Tab {...a11yProps(0)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><AnalyticsIcon className="text-purple-800 size-12"/></div>} label="داشبورد"/> 
+                  <Tab {...a11yProps(0)} className="min-w-32 text-zinc-800 font-extrabold text-xl opacity-100 text-nowrap" icon={<div className="bg-emerald-50 flex-center rounded-full size-20"><AnalyticsIcon className="text-mainColor size-12"/></div>} label="داشبورد"/> 
                 
               
-                  <Tab {...a11yProps(1)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><MoveToInboxIcon className="text-purple-800 size-12"/></div>} label="صندوق ورودی"/>
+                  <Tab {...a11yProps(1)} className="min-w-32 text-zinc-800 font-extrabold text-xl opacity-100 text-nowrap" icon={<div className="bg-emerald-50 flex-center rounded-full size-20"><MoveToInboxIcon className="text-mainColor size-12 "/></div>} label="صندوق ورودی"/>
                    
-                  <Tab {...a11yProps(2)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><CalendarMonthIcon className="text-purple-800 size-12"/></div>} label=" تقویم"/>
+                  <Tab {...a11yProps(2)} className="min-w-32 text-zinc-800 font-extrabold text-xl opacity-100 text-nowrap" icon={<div className="bg-emerald-50 flex-center rounded-full size-20"><CalendarMonthIcon className="text-mainColor size-12"/></div>} label=" تقویم"/>
 
-                  <Tab {...a11yProps(3)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><ReceiptLongIcon className="text-purple-800 size-12"/></div>} label=" صورتحساب"/>
-                  <Tab {...a11yProps(4)} className="text-zinc-800 font-extrabold text-xl opacity-100" icon={<div className="bg-purple-100 flex-center rounded-full size-20"><StickyNote2Icon className="text-purple-800 size-12"/></div>} label=" گزارش نویسی"/>
+                  <Tab {...a11yProps(3)} className="min-w-32 text-zinc-800 font-extrabold text-xl opacity-100 text-nowrap" icon={<div className="bg-emerald-50 flex-center rounded-full size-20"><ReceiptLongIcon className="text-mainColor size-12"/></div>} label=" صورتحساب"/>
+                  <Tab {...a11yProps(4)} className="min-w-32 text-zinc-800 font-extrabold text-xl opacity-100 text-nowrap" icon={<div className="bg-emerald-50 flex-center rounded-full size-20"><StickyNote2Icon className="text-mainColor size-12"/></div>} label=" گزارش نویسی"/>
                 </Tabs>
               </AppBar>
               <SwipeableViews
@@ -143,7 +143,7 @@ export default AllTools;
 const ToolsName = ({ icon}) => {
   return (
     <Box className="flex flex-col gap-8">
-      <Box className="flex-center size-16 rounded-full bg-purple-100 text-purple-800">
+      <Box className="flex-center size-16 rounded-full bg-emerald-50 text-mainColor">
         {icon}
       </Box>
     </Box>
@@ -154,7 +154,7 @@ export { ToolsName };
 
 const TabPanelContent = ({title , description , liOne , liTwo , liThree , liFour , img}) => {
   return (
-    <Box className="flex-between my-8">
+    <Box className="flex flex-col gap-4 items-center md:flex-row md:flex-between my-8">
     <Box className="flex flex-1 flex-col">
       <Box className="font-DanaBold text-xl mb-5">{title}</Box>
       <Box className="text-gray-500">
@@ -180,7 +180,7 @@ const TabPanelContent = ({title , description , liOne , liTwo , liThree , liFour
         </ul>
       </Box>
     <Box className="flex flex-1">
-      <img src={img} alt="ghorbani-dev.ir" className="object-fill w-[500px] mx-auto" />
+      <img src={img} alt="ghorbani-dev.ir" className="object-fill w-72 lg:w-96 mx-auto" />
     </Box>
     </Box>
   )
