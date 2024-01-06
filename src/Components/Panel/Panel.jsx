@@ -153,6 +153,7 @@ function Panel() {
           <div onClick={() => {
             setShowDialog(true)
             setUserID(user.id)
+            console.log(user.id)
           }} className="flex-center cursor-pointer text-rose-500">
               <DeleteOutlineOutlined />
            </div>
@@ -162,12 +163,12 @@ function Panel() {
   ];
   const userDeleteHandler = async () => {
    await axios
-    .delete(`http://localhost:2000/api/users/remove/${userID}.json`)
+    .delete(`http://localhost:2000/api/users/remove/${userID}`)
     .then(response => {
       toast.success("  کاربر مورد نظر با موفقیت حذف گردید");
       setShowDialog(false)
       setGetUsersData(prev => !prev)
-      console.log(response)
+      console.log(response , getUsersData)
     })
     .catch((error) => {
       toast.error(" حذف کاربر انجام نشد");

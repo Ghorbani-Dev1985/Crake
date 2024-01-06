@@ -4,10 +4,6 @@ const userRoutes = express.Router();
 
 userRoutes.post("/newUser", (req, res) => {
   const body = req.body;
-  crakeDB.connect((error) => {
-    if (error) {
-      console.log("Connection Unsuccessfully...");
-    } else {
       console.log("Connection Successfully...");
       let date = new Date().toLocaleDateString("fa-IR");
       let newUserInsertQuery = `INSERT INTO users VALUES (Null, '${date}' ,'${body.firstName}','${body.lastName}', '${body.phoneNumber}' ,' ${body.userName}' ,'${body.password}')`;
@@ -20,15 +16,9 @@ userRoutes.post("/newUser", (req, res) => {
           res.send(true);
         }
       });
-    }
-  });
 });
 
 userRoutes.get('/all' , (req, res) => {
-  crakeDB.connect((error) => {
-    if (error) {
-      console.log("Connection Unsuccessfully..." , error);
-    } else {
       console.log("Connection Successfully...");
       let getAllUsersQuery = 'SELECT * FROM users';
       crakeDB.query(getAllUsersQuery, (error, result) => {
@@ -40,16 +30,10 @@ userRoutes.get('/all' , (req, res) => {
           res.send(JSON.stringify(result));
         }
       });
-    }
-  });
 })
 
 userRoutes.delete('/remove/:userID' , (req , res) => {
   let userID = req.params.userID
-  crakeDB.connect((error) => {
-    if (error) {
-      console.log("Connection Unsuccessfully..." , error);
-    } else {
       console.log("Connection Successfully...");
       let deleteUserQuery = `DELETE FROM users WHERE id = ${userID}`;
       crakeDB.query(deleteUserQuery, (error, result) => {
@@ -61,8 +45,6 @@ userRoutes.delete('/remove/:userID' , (req , res) => {
           res.send(JSON.stringify(result));
         }
       });
-    }
-  });
 })
 
 module.exports = userRoutes;
