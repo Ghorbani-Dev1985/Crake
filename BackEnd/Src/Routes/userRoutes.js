@@ -47,4 +47,20 @@ userRoutes.delete('/remove/:userID' , (req , res) => {
       });
 })
 
+userRoutes.put('/edit/:userID' , (req , res) => {
+  let userID = req.params.userID;
+  let body = req.body;
+  console.log("Connection Successfully...");
+  let updateUserQuery = `UPDATE users SET firstName='${body.firstName}', lastName='${body.lastName}', phoneNumber ='${body.phoneNumber}', userName='${body.userName}', password='${body.password}' WHERE id = ${userID}`;
+  crakeDB.query(updateUserQuery, (error, result) => {
+    if (error) {
+      console.log("UPDATE User Failed..." , error);
+      res.send(null);
+    } else {
+      console.log("UPDATED user...");
+      res.send(JSON.stringify(result));
+    }
+  });
+})
+
 module.exports = userRoutes;

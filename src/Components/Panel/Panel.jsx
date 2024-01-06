@@ -91,16 +91,16 @@ const openedMixin = (theme) => ({
   );
 function Panel() {
     const theme = useTheme();
-  const [open, setOpen] = useState(true);
+  const [openDrawer, setOpenDrawer] = useState(true);
   const [users , setUsers] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
   const [getUsersData , setGetUsersData] = useState(false)
   const [userID , setUserID] = useState('')
   const handleDrawerOpen = () => {
-    setOpen(true);
+    setOpenDrawer(true);
   };
   const handleDrawerClose = () => {
-    setOpen(false);
+    setOpenDrawer(false);
   };
   const columns = [
     { 
@@ -153,7 +153,6 @@ function Panel() {
           <div onClick={() => {
             setShowDialog(true)
             setUserID(user.id)
-            console.log(user.id)
           }} className="flex-center cursor-pointer text-rose-500">
               <DeleteOutlineOutlined />
            </div>
@@ -168,7 +167,7 @@ function Panel() {
       toast.success("  کاربر مورد نظر با موفقیت حذف گردید");
       setShowDialog(false)
       setGetUsersData(prev => !prev)
-      console.log(response , getUsersData)
+      console.log(response)
     })
     .catch((error) => {
       toast.error(" حذف کاربر انجام نشد");
@@ -187,7 +186,7 @@ function Panel() {
      
     <Box sx={{ display: 'flex' }}>
     <CssBaseline />
-    <AppBar position="fixed" open={open}>
+    <AppBar position="fixed" open={openDrawer}>
       <Toolbar>
         <IconButton
           color="inherit"
@@ -197,7 +196,7 @@ function Panel() {
           edge="start"
           sx={{
             marginRight: 5,
-            ...(open && { display: 'none' }),
+            ...(openDrawer && { display: 'none' }),
           }}
         >
           <Menu  className='text-white'/>
@@ -207,7 +206,7 @@ function Panel() {
         </Typography>
       </Toolbar>
     </AppBar>
-    <Drawer variant="permanent" open={open}>
+    <Drawer variant="permanent" open={openDrawer}>
       <DrawerHeader>
         <IconButton onClick={handleDrawerClose}>
           {theme.direction === 'rtl' ? <ChevronRight /> : <ChevronLeft />}
@@ -220,7 +219,7 @@ function Panel() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
+                justifyContent: openDrawer ? 'initial' : 'center',
                 px: 2.5,
               }}
             >
@@ -233,7 +232,7 @@ function Panel() {
               >
                 {index % 2 === 0 ? <Inbox /> : <Mail />}
               </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText primary={text} sx={{ opacity: openDrawer ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -242,7 +241,7 @@ function Panel() {
     </Drawer>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <DrawerHeader />
-      <Typography variant='span' className='!font-MorabbaBold !text-3xl !my-4'>لیست کاربران</Typography>
+      <Typography variant='span' className='block !font-MorabbaBold !text-3xl !my-4'>لیست کاربران</Typography>
       <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid
          rows={users.map((user,index)=>{return {id:index+1,...user}})}
@@ -281,7 +280,7 @@ function Panel() {
           {"آیا برای حذف مطمعن هستید؟"}
         </DialogTitle>
         <DialogActions>
-          <Button onClick={() => setShowDialog(false)} autoFocus>انصراف</Button>
+          <Button onClick={() => setShowDialog(false)} autoFocus className='!text-zinc-800'>انصراف</Button>
           <Button onClick={() => userDeleteHandler()} className='!text-rose-500'>
             تایید
           </Button>
