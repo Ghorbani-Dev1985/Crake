@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { forwardRef, useEffect } from 'react'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -9,8 +9,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import {Menu , ChevronLeft , ChevronRight , Inbox , Mail , Edit , DeleteOutlineOutlined} from '@mui/icons-material';
-import { Button, ListItem } from '@mui/material';
+import {Menu , ChevronLeft , ChevronRight , Inbox , Mail , Edit , DeleteOutlineOutlined, Person, PhoneAndroid, AccountCircle, VisibilityOff, Visibility} from '@mui/icons-material';
+import { Button, DialogContent, InputAdornment, ListItem, Slide, TextField } from '@mui/material';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -33,7 +33,9 @@ const openedMixin = (theme) => ({
     }),
     overflowX: 'hidden',
   });
-  
+  const Transition = forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
   const closedMixin = (theme) => ({
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -93,9 +95,27 @@ function Panel() {
     const theme = useTheme();
   const [openDrawer, setOpenDrawer] = useState(true);
   const [users , setUsers] = useState([]);
-  const [showDialog, setShowDialog] = useState(false);
+  const [showDeleteUserDialog, setShowDeleteUserDialog] = useState(false);
+  const [showUpdateUserDialog, setShowUpdateUserDialog] = useState(false);
   const [getUsersData , setGetUsersData] = useState(false)
   const [userID , setUserID] = useState('')
+  const [showPassword, setShowPassword] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [showError, setShowError] = useState(false);
+  const [notFirstNameValidError, setFirstNameShowNotValidError] =
+    useState(false);
+  const [notLastNameValidError, setLastNameShowNotValidError] = useState(false);
+  const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
+    useState(false);
+    const [notUserNameValidError, setUserNameShowNotValidError] =
+    useState(false);
+    const [notPasswordValidError, setPasswordShowNotValidError] =
+    useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleDrawerOpen = () => {
     setOpenDrawer(true);
   };
@@ -137,9 +157,12 @@ function Panel() {
     {
       field: 'editAction',
      headerName: 'ویرایش', width: 60 ,
-    renderCell: (editID) => {
+    renderCell: (user) => {
       return (
-          <div className="flex-center cursor-pointer text-sky-500">
+          <div onClick={() => {
+            setShowUpdateUserDialog(true)
+            setUserID(user.id)
+          }} className="flex-center cursor-pointer text-sky-500">
               <Edit />
            </div>
       );
@@ -151,7 +174,7 @@ function Panel() {
     renderCell: (user) => {
       return (
           <div onClick={() => {
-            setShowDialog(true)
+            setShowDeleteUserDialog(true)
             setUserID(user.id)
           }} className="flex-center cursor-pointer text-rose-500">
               <DeleteOutlineOutlined />
@@ -165,7 +188,7 @@ function Panel() {
     .delete(`http://localhost:2000/api/users/remove/${userID}`)
     .then(response => {
       toast.success("  کاربر مورد نظر با موفقیت حذف گردید");
-      setShowDialog(false)
+      setShowDeleteUserDialog(false)
       setGetUsersData(prev => !prev)
       console.log(response)
     })
@@ -175,11 +198,98 @@ function Panel() {
     });
     console.log(userID)
   }
+  const firstNameInputHandler = (event) => {
+    setFirstName(event.target.value);
+    if (firstName.length < 3) {
+      setFirstNameShowNotValidError(true);
+    } else {
+      setFirstNameShowNotValidError(false);
+    }
+  };
+  const lastNameInputHandler = (event) => {
+    setLastName(event.target.value);
+    if (lastName.length < 3) {
+      console.log(lastName.length);
+      setLastNameShowNotValidError(true);
+    } else {
+      setLastNameShowNotValidError(false);
+    }
+  };
+  const phoneNumberInputHandler = (event) => {
+    setPhoneNumber(event.target.value);
+    if (phoneNumber.length < 10) {
+      setPhoneNumberShowNotValidError(true);
+    } else {
+      setPhoneNumberShowNotValidError(false);
+    }
+  };
+  const userNameInputHandler = (event) => {
+    setUserName(event.target.value)
+    if (userName.length < 6) {
+      setUserNameShowNotValidError(true);
+    } else {
+      setUserNameShowNotValidError(false);
+    }
+  };
+ const passwordInputHandler = (event) => {
+  setPassword(event.target.value)
+    if (password.length < 8) {
+      setPasswordShowNotValidError(true);
+    } else {
+      setPasswordShowNotValidError(false);
+    }
+  };
+  
+  const userUpdateHandler = async () => {
+    let userUpdateInfos = JSON.stringify({
+      firstName,
+      lastName,
+      phoneNumber,
+      userName,
+      password,
+    });
+    if (firstName && lastName && userName && phoneNumber && password && firstName.length > 3 && lastName.length > 3 && phoneNumber.length > 9 && userName.length > 6 && password.length > 8) {
+ await axios
+    .put(`http://localhost:2000/api/users/edit/${userID}` , userUpdateInfos , {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      toast.success("  کاربر مورد نظر با موفقیت ویرایش گردید");
+      setShowUpdateUserDialog(false)
+      setGetUsersData(prev => !prev)
+      setFirstName('')
+          setLastName('')
+          setPhoneNumber('')
+          setUserName('')
+          setPassword('')
+      console.log(response)
+    })
+    .catch((error) => {
+      toast.error(" ویرایش کاربر انجام نشد");
+      console.log(error);
+    });
+    }else{
+      toast.error("لطفا فرم را تکمیل نمایید");
+    }
+   
+  }
   useEffect(() => {
   axios
    .get('http://localhost:2000/api/users/all')
    .then(response => setUsers(response.data))
-  }, [getUsersData])
+  }, [getUsersData]);
+  useEffect(() => {
+    let filteredUpdateUser = users.find(user => +user.ID === +userID)
+    if(filteredUpdateUser){
+      setFirstName(filteredUpdateUser.firstName)
+      setLastName(filteredUpdateUser.lastName)
+      setPhoneNumber(filteredUpdateUser.phoneNumber)
+      setUserName(filteredUpdateUser.userName)
+      setPassword(filteredUpdateUser.password)
+    }
+  }, [userID])
   console.log(users)
   return (
     <RtlProvider>
@@ -270,8 +380,9 @@ function Panel() {
     </Box>
     </Box>
   </Box>
+  {/* Delete User Dialog */}
   <Dialog
-        open={showDialog}
+        open={showDeleteUserDialog}
         onClose={() => setShowDialog(false)}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
@@ -280,11 +391,196 @@ function Panel() {
           {"آیا برای حذف مطمعن هستید؟"}
         </DialogTitle>
         <DialogActions>
-          <Button onClick={() => setShowDialog(false)} autoFocus className='!text-zinc-800'>انصراف</Button>
+          <Button onClick={() => setShowDeleteUserDialog(false)} autoFocus className='!text-zinc-800'>انصراف</Button>
           <Button onClick={() => userDeleteHandler()} className='!text-rose-500'>
             تایید
           </Button>
         </DialogActions>
+      </Dialog>
+      {/* Edit User Dialog */}
+      <Dialog
+        open={showUpdateUserDialog}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={() => setShowUpdateUserDialog(false)}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle className='flex-center !font-MorabbaBold'>{" ویرایش اطلاعات کاربر"}</DialogTitle>
+          <form className='w-full'>
+        <DialogContent className='flex flex-col gap-4'>      
+        <TextField
+                  id="RegisterFirstName"
+                  value={firstName}
+                  onChange={(event) => firstNameInputHandler(event)}
+                  autoComplete='off'
+                  label={
+                    <span>
+                      نام <span className="text-rose-500 text-sm">*</span>
+                    </span>
+                  }
+                  error={notFirstNameValidError && true}
+                  helperText={
+                    notFirstNameValidError && (
+                      <span className="text-rose-500">
+                        لطفا حداقل سه کاراکتر وارد نمایید
+                      </span>
+                    )
+                  }
+                  variant="outlined"
+                  size="small"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton edge="end">
+                          <Person />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  id="RegisterLastName"
+                  value={lastName}
+                  onChange={(event) => lastNameInputHandler(event)}
+                  autoComplete='off'
+                  label={
+                    <span>
+                      نام خانوادگی{" "}
+                      <span className="text-rose-500 text-sm">*</span>
+                    </span>
+                  }
+                  error={notLastNameValidError && true}
+                  helperText={
+                    notLastNameValidError && (
+                      <span className="text-rose-500">
+                        لطفا حداقل چهار کاراکتر وارد نمایید
+                      </span>
+                    )
+                  }
+                  variant="outlined"
+                  size="small"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton edge="end">
+                          <Person />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  id="RegisterLastName"
+                  value={phoneNumber}
+                  inputProps={{
+                    maxLength: 10,
+                    type: 'number',
+                }}
+                  onInput={(e) => {
+                    e.target.value = Math.max(0, parseInt(e.target.value))
+                      .toString()
+                      .slice(0, e.target.maxLength);
+                  }}
+                  onChange={(event) => phoneNumberInputHandler(event)}
+                  autoComplete='off'
+                  label={
+                    <span>
+                      شماره همراه{" "}
+                      <span className="text-rose-500 text-sm">*</span>
+                    </span>
+                  }
+                  error={notPhoneNumberValidError && true}
+                  helperText={
+                    notPhoneNumberValidError && (
+                      <span className="text-rose-500">
+                        لطفا حداقل یازده عدد وارد نمایید
+                      </span>
+                    )
+                  }
+                  variant="outlined"
+                  size="small"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton edge="end">
+                          <PhoneAndroid />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  id="RegisterUserName"
+                  value={userName}
+                  onChange={(event) => userNameInputHandler(event)}
+                  autoComplete='off'
+                  label={
+                    <span>
+                      نام کاربری
+                      <span className="text-rose-500 text-sm">*</span>
+                    </span>
+                  }
+                  variant="outlined"
+                  size="small"
+                  error={notUserNameValidError && true}
+                  helperText={
+                    notUserNameValidError && (
+                      <span className="text-rose-500">
+                        لطفا حداقل شش کاراکتر وارد نمایید
+                      </span>
+                    )
+                  }
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton edge="end">
+                          <AccountCircle />
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+                <TextField
+                  id="RegisterPassword"
+                  value={password}
+                  onChange={(event) => passwordInputHandler(event)}
+                  type={showPassword ? "text" : "password"}
+                  label={
+                    <span>
+                      کلمه عبور <span className="text-rose-500 text-sm">*</span>
+                    </span>
+                  }
+                  variant="outlined"
+                  size="small"
+                  error={notPasswordValidError && true}
+                  helperText={
+                    notPasswordValidError && (
+                      <span className="text-rose-500">
+                        لطفا حداقل هشت کاراکتر وارد نمایید
+                      </span>
+                    )
+                  }
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={(event) => event.preventDefault()}
+                          edge="end"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setShowUpdateUserDialog(false)} className='!text-zinc-800'>انصراف</Button>
+          <Button onClick={() => userUpdateHandler()}>ثبت</Button>
+        </DialogActions>
+          </form>
       </Dialog>
   </RtlProvider>
   )
