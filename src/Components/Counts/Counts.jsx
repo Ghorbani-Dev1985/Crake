@@ -4,6 +4,7 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
+import CountUp from 'react-countup';
 
 function Counts() {
   return (
@@ -27,7 +28,7 @@ const CountBox = ({icon , number , subtitle}) => {
        <Typography className='flex-center size-20 bg-emerald-50 group-hover:bg-mainColor group-hover:text-mainColor text-mainColor rounded-full transition-colors'>
                  {icon} 
            </Typography>
-        <Typography className='font-DanaBold text-zinc-900 text-5xl'>{number}</Typography>
+           <CountUp start={0}  duration={2.75} end={number} className='font-DanaBold text-4xl'/>
         <Typography className='text-gray-500'>{subtitle}</Typography>
        </Box>
     )
