@@ -1,11 +1,11 @@
 import React from "react";
 import OurFeatureCards from "./OurFeatureCards/OurFeatureCards";
-import ShapeTen from "../../../../assets/Images/svgs/shape10.svg";
-import ShapeSex from "../../../../assets/Images/shape6.png";
-import ShapeSeven from "../../../../assets/Images/shape7.png";
-import ShapeNine from "../../../../assets/Images/svgs/shape9.svg";
-import SectionTitle from "../../../common/SectionTitle/SectionTitle";
+import ShapeTen from "../../assets/Images/svgs/shape10.svg";
+import ShapeSex from "../../assets/Images/shape6.png";
+import ShapeSeven from "../../assets/Images/shape7.png";
+import ShapeNine from "../../assets/Images/svgs/shape9.svg";
 import { Box } from "@mui/material";
+import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 function OurFeatures() {
   return (

@@ -1,9 +1,10 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import Overview from "./../../../../assets/Images/overview-4.png"
+import Overview from "../../assets/Images/overview-4.png"
 import MessageIcon from '@mui/icons-material/Message';
-import AnimateButton from '../../../common/AnimateButton/AnimateButton';
-import ShapeEleven from '../../../../assets/Images/svgs/shape11.svg'
+import AnimateButton from '../common/AnimateButton/AnimateButton';
+
+
 
 
 function ProfessionalStaff() {

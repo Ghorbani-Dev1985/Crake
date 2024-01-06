@@ -1,10 +1,10 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 import AnchorIcon from '@mui/icons-material/Anchor';
-import AnimateButton from '../../../common/AnimateButton/AnimateButton';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import PhonelinkSetupOutlinedIcon from '@mui/icons-material/PhonelinkSetupOutlined';
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
+import AnimateButton from '../common/AnimateButton/AnimateButton';
 
 
 function OldComments() {

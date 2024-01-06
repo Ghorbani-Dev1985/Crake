@@ -14,7 +14,7 @@ import { Button, DialogContent, InputAdornment, ListItem, Slide, TextField } fro
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import RtlProvider from '../common/RtlProvider/RtlProvider';
+import RtlProvider from '../../common/RtlProvider/RtlProvider';
 import { useState } from 'react';
 import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
@@ -280,6 +280,7 @@ function Panel() {
    .get('http://localhost:2000/api/users/all')
    .then(response => setUsers(response.data))
   }, [getUsersData]);
+  // Show edit user infos in dialog form
   useEffect(() => {
     let filteredUpdateUser = users.find(user => +user.ID === +userID)
     if(filteredUpdateUser){
@@ -290,7 +291,6 @@ function Panel() {
       setPassword(filteredUpdateUser.password)
     }
   }, [userID])
-  console.log(users)
   return (
     <RtlProvider>
      

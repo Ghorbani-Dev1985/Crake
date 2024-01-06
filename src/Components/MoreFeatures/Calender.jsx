@@ -1,8 +1,9 @@
 import React from 'react'
-import CalenderImg from "../../../../assets/Images/overview-1.png";
+import CalenderImg from "../../assets/Images/overview-1.png";
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { Box } from '@mui/material';
-import AnimateButton from './../../../common/AnimateButton/AnimateButton'
+import AnimateButton from '../common/AnimateButton/AnimateButton';
+
 
 
 

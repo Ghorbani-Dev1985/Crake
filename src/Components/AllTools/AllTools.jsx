@@ -1,5 +1,5 @@
 import React from "react";
-import SectionTitle from "../../../common/SectionTitle/SectionTitle";
+
 
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
@@ -13,7 +13,8 @@ import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views-react-18-fix";
 import { useTheme } from "@mui/material/styles";
 import { AppBar, Tabs, Tab } from "@mui/material";
-import FeatureImg from './../../../../assets/Images/features-img1.png'
+import FeatureImg from '../../assets/Images/features-img1.png'
+import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 
 function TabPanel(props) {

@@ -1,12 +1,13 @@
 import React from "react";
-import SectionTitle from "../../../common/SectionTitle/SectionTitle";
+
 import Calender from "./Calender";
 import OldComments from "./OldComments";
 import CodeReview from "./CodeReview";
 import ProfessionalStaff from "./ProfessionalStaff";
-import ShapeSeven from "../../../../assets/Images/shape7.png";
-import ShapeSix from "../../../../assets/Images/shape6.png";
+import ShapeSeven from "../../assets/Images/shape7.png";
+import ShapeSix from "../../assets/Images/shape6.png";
 import { Box } from "@mui/system";
+import SectionTitle from "../common/SectionTitle/SectionTitle";
 
 function MoreFeatures() {
   return (

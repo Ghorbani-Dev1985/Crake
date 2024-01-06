@@ -1,7 +1,7 @@
 import { Box, Button, IconButton, InputAdornment, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import Logo from '../../assets/Images/logo.png'
-import RtlProvider from '../common/RtlProvider/RtlProvider'
+import Logo from '../../../assets/Images/logo.png'
+import RtlProvider from '../../common/RtlProvider/RtlProvider'
 import { Person, Visibility, VisibilityOff } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';

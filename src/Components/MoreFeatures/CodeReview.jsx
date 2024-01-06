@@ -1,9 +1,10 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import Overview from "./../../../../assets/Images/overview-3.png"
+import Overview from "../../assets/Images/overview-3.png"
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import AnimateButton from '../../../common/AnimateButton/AnimateButton';
-import ShapeEight from './../../../../assets/Images/svgs/shape8-2.svg'
+
+import ShapeEight from '../../assets/Images/svgs/shape8-2.svg'
+import AnimateButton from '../common/AnimateButton/AnimateButton';
 
 function CodeReview() {
   return (
