@@ -98,8 +98,8 @@
 }
 
 @layer utilities {
-  .scrollbar-medium::-webkit-scrollbar {
-    @apply w-1;
+  .scrollbar::-webkit-scrollbar {
+    @apply w-2;
   }
   .flex-center{
     @apply flex justify-center items-center
