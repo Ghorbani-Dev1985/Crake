@@ -8,6 +8,8 @@ import RegisterForm from "../../RegisterForm/RegisterForm";
 import AllTools from "../../AllTools/AllTools";
 import Counts from "../../Counts/Counts";
 import UserFriendly from '../../UserFriendly/UserFriendly'
+import Process from "../../Process/Process";
+
 
 function HomePage() {
   return (
@@ -21,6 +23,7 @@ function HomePage() {
     <AllTools />
     <Counts />
     <UserFriendly />
+    <Process />
     </>
   );
 }
