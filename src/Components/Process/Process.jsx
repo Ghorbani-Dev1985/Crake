@@ -9,7 +9,7 @@ import DoneIcon from '@mui/icons-material/Done';
 
 function Process() {
   return (
-    <Box className='bg-UserCTAbg bg-center bg-cover bg-fixed bg-no-repeat relative z-20 py-20 border-t-[20px] border-b-[20px] rounded-tr-3xl rounded-bl-3xl border-emerald-200 border-solid border-r-0 border-l-0 before:content-[""] before:w-full before:h-full before:bg-mainColor before:absolute before:z-10 before:left-0 before:top-0 before:opacity-60'>
+    <Box className='bg-UserCTAbg bg-center bg-cover bg-fixed bg-no-repeat relative py-20 border-t-[20px] border-b-[20px] rounded-tr-3xl rounded-bl-3xl border-emerald-200 border-solid border-r-0 border-l-0 before:content-[""] before:w-full before:h-full before:bg-mainColor before:absolute before:left-0 before:top-0 before:opacity-60'>
       <Box className="container">
         <SectionTitle title="فرآیند کار" subtitle="در تمام مراحل فرآیند کار در کنار شما هستیم تا از درست بودن روند مطمعن باشیم" titleStyle="main" mainStyle="relative z-20 text-white" CustomStyle="text-white" subtitleStyle="text-white"/>
         <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
@@ -28,8 +28,8 @@ export default Process
 
 const ProcessBox = ({icon , boxTitle , boxSubtitle}) => {
   return(
-     <Box className="flex flex-col gap-8 bg-white rounded-md p-4 relative z-40 after:content-[''] after:w-90p after:z-30 after:absolute after:h-2 after:-bottom-1 after:left-0 after:right-0 after:mx-auto after:bg-emerald-200 after:rounded-lg">
-       <p className='size-14 flex-center bg-slate-200 text-mainColor rounded-full'>
+     <Box className="flex flex-col gap-8 bg-white group top-0 hover:-top-3 rounded-md z-20 p-4 relative after:content-[''] after:w-90p after:z-10 after:absolute after:h-2 after:-bottom-1 after:left-0 after:right-0 after:mx-auto after:bg-emerald-200 after:rounded-lg transition-all ease-linear duration-300">
+       <p className='size-14 flex-center bg-slate-200 text-mainColor group-hover:bg-mainColor group-hover:text-slate-200 transition-none rounded-full'>
             <span className='flex-center'>{icon}</span>
        </p>
        <p className='font-DanaBold text-4xl'>{boxTitle}</p>
