@@ -9,6 +9,7 @@ import AllTools from "../../AllTools/AllTools";
 import Counts from "../../Counts/Counts";
 import UserFriendly from '../../UserFriendly/UserFriendly'
 import Process from "../../Process/Process";
+import PricingPlan from "../../PricingPlan/PricingPlan";
 
 
 function HomePage() {
@@ -24,6 +25,7 @@ function HomePage() {
     <Counts />
     <UserFriendly />
     <Process />
+    <PricingPlan />
     </>
   );
 }

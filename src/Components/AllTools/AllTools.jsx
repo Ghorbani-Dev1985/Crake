@@ -62,7 +62,7 @@ function AllTools() {
     setValue(index);
   };
   return (
-    <section className="bg-slate-50 relative pb-24 z-20">
+    <section className="bg-[#edf5ff] relative pb-24 z-20">
       <Box className="container">
         <SectionTitle
           title=" ابزار برای همه"
