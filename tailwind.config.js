@@ -21,6 +21,7 @@ module.exports = {
           'products' : 'url("../../assets/Images/product-bg.png")',
           'UserCTAbg' : 'url("../../assets/Images/cta-bg.jpg")',
           'registerFormBg' : 'url("../../assets/Images/registerFormBg.png")',
+          'ourCustomerBg' : 'linear-gradient(to right bottom , rgb(237,245,255)) , url("../../assets/Images/svgs/ourCustomerBG.svg")',
       },
       colors: {
         brown: {

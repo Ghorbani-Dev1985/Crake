@@ -16,14 +16,13 @@ import { Autoplay} from 'swiper/modules';
 function OurCustomer() {
 
   return (
-    <section className="bg-[#edf5ff] relative z-20">
+    <section className="bg-ourCustomerBg relative">
       <Box className="container">
         <SectionTitle
           title=" نظر مشتریان "
           subtitle=" برخی از نظرهای مشتریان ما را می توانید در زیر مشاهده کنید"
           titleStyle="main"
         />
-        <Box className="">
          <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -31,23 +30,20 @@ function OurCustomer() {
           delay: 2500,
         }}
         modules={[ Autoplay]}
-        className="mySwiper "
+        className="mySwiper my-12"
         >
-       <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+       <SwiperSlide className="bg-white h-full">Slide 1</SwiperSlide>
+        <SwiperSlide className="bg-white h-full">Slide 2</SwiperSlide>
+        <SwiperSlide className="bg-white h-full">Slide 3</SwiperSlide>
+        <SwiperSlide className="bg-white h-full">Slide 4</SwiperSlide>
+        <SwiperSlide className="bg-white h-full">Slide 5</SwiperSlide>
+        <SwiperSlide className="bg-white h-full">Slide 6</SwiperSlide>
+        <SwiperSlide className="bg-white h-full">Slide 7</SwiperSlide>
+        <SwiperSlide className="bg-white h-full">Slide 8</SwiperSlide>
+        <SwiperSlide className="bg-white h-full">Slide 9</SwiperSlide>
       </Swiper>
-        </Box>
       </Box>
-        <svg class="absolute -bottom-28 left-0 w-full h-auto -z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-				<path d="M0,70 C30,130 70,50 100,70 L100,100 0,100 Z" fill="#ffffff"></path>
-			</svg>
+     
     </section>
   );
 }
