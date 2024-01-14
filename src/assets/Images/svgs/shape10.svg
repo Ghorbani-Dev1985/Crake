@@ -4,8 +4,8 @@
  width="193px" height="235px">
 <defs>
 <linearGradient id="PSgrad_0" x1="69.857%" x2="0%" y1="0%" y2="71.555%">
-  <stop offset="0%" stop-color="#c084fc" stop-opacity="1" />
-  <stop offset="100%" stop-color="#7e22ce" stop-opacity="1" />
+  <stop offset="0%" stop-color="#a7f3d0" stop-opacity="1" />
+  <stop offset="100%" stop-color="#13c4a1" stop-opacity="1" />
 </linearGradient>
 
 </defs>

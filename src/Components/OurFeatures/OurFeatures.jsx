@@ -25,7 +25,7 @@ function OurFeatures() {
       <div className="container relative">
         <img
           src={ShapeTen}
-          className="absolute size-30 right-1 md:right-44 top-10 md:size-auto animate-moveBounce opacity-50"
+          className="absolute size-30 right-1 md:right-44 top-10 md:size-auto animate-moveBounce"
           alt="ghorbani-dev.ir"
         />
         <SectionTitle

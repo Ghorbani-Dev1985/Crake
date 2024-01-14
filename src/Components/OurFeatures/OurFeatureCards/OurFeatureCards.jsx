@@ -20,7 +20,7 @@ export default OurFeatureCards;
 function OurFeatureCard ({Icon , Title , Description}) {
   return(
      <div className='flex flex-col items-center cursor-pointer group hover:-mt-4 transition-all ease-linear duration-300 relative z-30'>
-       <p className='flex-center size-20 rounded-full bg-purple-100 group-hover:bg-purple-800 group-hover:text-white transition-colors text-purple-400 text-4xl mb-3'>
+       <p className='flex-center size-20 rounded-full bg-emerald-100 group-hover:bg-mainColor group-hover:text-white transition-colors text-mainColor text-4xl mb-3'>
           {Icon}
        </p>
        <h3 className='font-DanaBold text-lg md:text-xl mb-4'>{Title}</h3>
