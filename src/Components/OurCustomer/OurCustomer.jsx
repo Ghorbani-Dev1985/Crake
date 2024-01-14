@@ -9,27 +9,25 @@ import AnimateButton from "../common/AnimateButton/AnimateButton";
 
 
 
-function PricingPlan() {
+function OurCustomer() {
 
   return (
-    <section className="bg-[#edf5ff] relative pb-30 z-20">
+    <section className="bg-[#edf5ff] relative pb-96 z-20">
       <Box className="container">
         <SectionTitle
-          title=" طرح های قیمت گذاری آسان "
-          subtitle=" یکی از طرح ها را می توانید از جدول زیر انتخاب نمایید و خریداری نمایید"
+          title=" نظر مشتریان "
+          subtitle=" برخی از نظرهای مشتریان ما را می توانید در زیر مشاهده کنید"
           titleStyle="main"
         />
-         <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16">
-                     <PricingPlanBox icon={<ManageAccounts />} price="500,000" planName="شخصی" planNameBtnColor="bg-emerald-400" disableOne={true} disableTwo={true} disable={true}/>
-                     <PricingPlanBox icon={<Store />} price="1,000,000" planName="شرکتی" planNameBtnColor="bg-emerald-500" disable={true}/>
-                     <PricingPlanBox icon={<AttachMoney />} price="2,000,000" planName="سرمایه گذاری" planNameBtnColor="bg-emerald-600"/>
-         </Box>
       </Box>
+        <svg class="absolute -bottom-28 left-0 w-full h-auto -z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+				<path d="M0,70 C30,130 70,50 100,70 L100,100 0,100 Z" fill="#ffffff"></path>
+			</svg>
     </section>
   );
 }
 
-export default PricingPlan;
+export default OurCustomer;
 
 
 const PricingPlanBox = ({icon , price , planName , disableOne , disableTwo , disable , planNameBtnColor}) => {

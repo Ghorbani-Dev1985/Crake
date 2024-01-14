@@ -10,6 +10,7 @@ import Counts from "../../Counts/Counts";
 import UserFriendly from '../../UserFriendly/UserFriendly'
 import Process from "../../Process/Process";
 import PricingPlan from "../../PricingPlan/PricingPlan";
+import OurCustomer from "../../OurCustomer/OurCustomer";
 
 
 function HomePage() {
@@ -20,12 +21,13 @@ function HomePage() {
     <MoreFeatures />
     <JoinUS />
     <UserCTA />
-    <RegisterForm />
     <AllTools />
     <Counts />
     <UserFriendly />
     <Process />
     <PricingPlan />
+    <RegisterForm />
+    <OurCustomer />
     </>
   );
 }

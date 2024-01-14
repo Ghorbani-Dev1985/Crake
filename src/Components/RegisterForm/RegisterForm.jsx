@@ -118,7 +118,7 @@ function RegisterForm() {
   };
   
   return (
-    <Box className="bg-registerFormBg">
+    <Box className="bg-registerFormBg pb-24">
       <Box className="container">
         <SectionTitle
           title="  شروع به کار رایگان  "
