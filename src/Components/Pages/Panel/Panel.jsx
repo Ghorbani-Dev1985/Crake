@@ -137,7 +137,7 @@ function Panel() {
     {
       field: 'userName',
       headerName: '  نام کاربری ',
-      width: 150,
+      width: 200,
     },
     {
       field: 'firstName',
@@ -147,7 +147,7 @@ function Panel() {
     {
       field: 'lastName',
       headerName: ' نام خانوادگی',
-      width: 150,
+      width: 200,
     },
     {
       field: 'phoneNumber',
@@ -185,7 +185,11 @@ function Panel() {
   ];
   const userDeleteHandler = async () => {
    await axios
-    .delete(`http://localhost:2000/api/users/remove/${userID}`)
+    .delete('http://localhost:8000/api/users/delete' , {
+      headers: {
+        authorization: userID,
+      },
+    })
     .then(response => {
       toast.success("  کاربر مورد نظر با موفقیت حذف گردید");
       setShowDeleteUserDialog(false)
@@ -217,7 +221,7 @@ function Panel() {
   };
   const phoneNumberInputHandler = (event) => {
     setPhoneNumber(event.target.value);
-    if (phoneNumber.length < 10) {
+    if (phoneNumber.length < 9) {
       setPhoneNumberShowNotValidError(true);
     } else {
       setPhoneNumberShowNotValidError(false);
@@ -250,9 +254,9 @@ function Panel() {
     });
     if (firstName && lastName && userName && phoneNumber && password && firstName.length > 3 && lastName.length > 3 && phoneNumber.length > 9 && userName.length > 6 && password.length > 8) {
  await axios
-    .put(`http://localhost:2000/api/users/edit/${userID}` , userUpdateInfos , {
+    .put('http://localhost:8000/api/users/update' , userUpdateInfos , {
       headers: {
-        'Content-Type': 'application/json'
+        authorization: userID,
       }
     })
     .then(response => {
@@ -277,12 +281,12 @@ function Panel() {
   }
   useEffect(() => {
   axios
-   .get('http://localhost:2000/api/users/all')
+   .get('http://localhost:8000/api/users/all')
    .then(response => setUsers(response.data))
   }, [getUsersData]);
   // Show edit user infos in dialog form
   useEffect(() => {
-    let filteredUpdateUser = users.find(user => +user.ID === +userID)
+    let filteredUpdateUser = users.find(user => user._id === userID)
     if(filteredUpdateUser){
       setFirstName(filteredUpdateUser.firstName)
       setLastName(filteredUpdateUser.lastName)
@@ -355,7 +359,7 @@ function Panel() {
       <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid
          rows={users.map((user,index)=>{return {id:index+1,...user}})}
-        getRowId={(row) => row.ID}
+        getRowId={(row) => row._id}
         columns={columns}
         initialState={{
           pagination: {
