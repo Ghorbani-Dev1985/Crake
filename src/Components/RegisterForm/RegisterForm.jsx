@@ -54,7 +54,7 @@ function RegisterForm() {
     console.log(newUserInfos);
     if (firstName && lastName && userName && phoneNumber && password && firstName.length > 3 && lastName.length > 3 && phoneNumber.length > 9 && userName.length > 6 && password.length > 8) {
       await axios
-        .post("http://localhost:2000/api/users/newUser", newUserInfos , {
+        .post("http://localhost:8000/api/users/newUser", newUserInfos , {
           headers: {
             'Content-Type': 'application/json'
           }

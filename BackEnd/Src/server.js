@@ -1,15 +1,19 @@
-const express = require("express");
+const express = require('express')
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const crakeDB = require("./DB/crakeDB");
-const usersRoutes = require("./Routes/userRoutes");
 
-const app = express();
-app.use(bodyParser.json());
-app.use(cors());
+const userRouter = require('./Routes/userRouter')
 
-app.use("/api/users", usersRoutes);
+const app = express()
+app.use(bodyParser.json())
+app.use(cors())
+app.use('/api/users' , userRouter)
 
-app.listen(2000, () => {
-  console.log("Server run on port 2000");
-});
+
+mongoose.connect('mongodb://127.0.0.1:27017/Crake');
+mongoose.Promise = global.Promise;
+
+
+
+app.listen(8000)
