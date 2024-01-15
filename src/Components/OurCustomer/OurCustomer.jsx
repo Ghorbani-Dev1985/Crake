@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
+import { Button, TextField, TextareaAutosize, Typography } from "@mui/material";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
-import { AttachMoney, ManageAccounts, Store } from "@mui/icons-material";
+import { AttachMoney, ManageAccounts, RateReview, Store } from "@mui/icons-material";
 import AnimateButton from "../common/AnimateButton/AnimateButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -11,9 +11,69 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import required modules
 import { Autoplay } from "swiper/modules";
+import { useState } from "react";
+import RtlProvider from "../common/RtlProvider/RtlProvider";
 
 function OurCustomer() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const [text , setText] = useState("")
+  const [isShowing, setIsShowing] = useState(false);
+  const [isShowTestimonialFrom , setIsShowTestimonialFrom] = useState(false);
+  const [notFirstNameValidError, setFirstNameShowNotValidError] =
+  useState(false);
+const [notLastNameValidError, setLastNameShowNotValidError] = useState(false);
+const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
+  useState(false);
+  const [notUserNameValidError, setUserNameShowNotValidError] =
+  useState(false);
+  const [notPasswordValidError, setPasswordShowNotValidError] =
+  useState(false);
+  const firstNameInputHandler = (event) => {
+    setFirstName(event.target.value);
+    if (firstName.length < 3) {
+      setFirstNameShowNotValidError(true);
+    } else {
+      setFirstNameShowNotValidError(false);
+    }
+  };
+  const lastNameInputHandler = (event) => {
+    setLastName(event.target.value);
+    if (lastName.length < 3) {
+      console.log(lastName.length);
+      setLastNameShowNotValidError(true);
+    } else {
+      setLastNameShowNotValidError(false);
+    }
+  };
+  const phoneNumberInputHandler = (event) => {
+    setPhoneNumber(event.target.value);
+    if (phoneNumber.length < 9) {
+      setPhoneNumberShowNotValidError(true);
+    } else {
+      setPhoneNumberShowNotValidError(false);
+    }
+  };
+  const userNameInputHandler = (event) => {
+    setUserName(event.target.value)
+    if (userName.length < 6) {
+      setUserNameShowNotValidError(true);
+    } else {
+      setUserNameShowNotValidError(false);
+    }
+  };
+ const passwordInputHandler = (event) => {
+  setPassword(event.target.value)
+    if (password.length < 8) {
+      setPasswordShowNotValidError(true);
+    } else {
+      setPasswordShowNotValidError(false);
+    }
+  };
   return (
+    <>
     <section className="bg-[#edf5ff] relative py-25 overflow-hidden">
       <Box className="container relative z-10">
         <SectionTitle
@@ -21,9 +81,112 @@ function OurCustomer() {
           subtitle=" برخی از نظرهای مشتریان ما را می توانید در زیر مشاهده کنید"
           titleStyle="main"
         />
-        <Box className="w-full flex-center my-10">
-        <AnimateButton BtnText="ثبت نظر جدید"/>
+        <Box onClick={() => setIsShowTestimonialFrom(!isShowTestimonialFrom)} className="w-full flex-center my-10"> 
+        <Button component="label" variant="contained" className="!text-white" startIcon={<RateReview />}>
+          <span className="mr-2"> ثبت نظر جدید</span>
+       
+    </Button>
         </Box>
+      {
+        isShowTestimonialFrom &&
+        <RtlProvider> 
+          {/* Testimonial Form */}
+          <form className='bg-gray-50 p-12 rounded-lg'>
+            <Box className="w-full flex justify-between items-center mb-6">
+          <TextField
+                    value={firstName}
+                    onChange={(event) => firstNameInputHandler(event)}
+                    autoComplete='off'
+                    label={
+                      <span>
+                        نام <span className="text-rose-500 text-sm">*</span>
+                      </span>
+                    }
+                    error={notFirstNameValidError && true}
+                    helperText={
+                      notFirstNameValidError && (
+                        <span className="text-rose-500">
+                          لطفا حداقل سه کاراکتر وارد نمایید
+                        </span>
+                      )
+                    }
+                    variant="outlined"
+                    size="small"
+                  />
+                   <TextField
+                    value={lastName}
+                    onChange={(event) => lastNameInputHandler(event)}
+                    autoComplete='off'
+                    label={
+                      <span>
+                        نام خانوادگی
+                        <span className="text-rose-500 text-sm">*</span>
+                      </span>
+                    }
+                    error={notLastNameValidError && true}
+                    helperText={
+                      notLastNameValidError && (
+                        <span className="text-rose-500">
+                          لطفا حداقل چهار کاراکتر وارد نمایید
+                        </span>
+                      )
+                    }
+                    variant="outlined"
+                    size="small"
+                  />
+                    <TextField
+                    value={jobTitle}
+                    onChange={(event) => lastNameInputHandler(event)}
+                    autoComplete='off'
+                    label={
+                      <span>
+                        عنوان تخصص
+                        <span className="text-rose-500 text-sm">*</span>
+                      </span>
+                    }
+                    error={notLastNameValidError && true}
+                    helperText={
+                      notLastNameValidError && (
+                        <span className="text-rose-500">
+                          لطفا حداقل چهار کاراکتر وارد نمایید
+                        </span>
+                      )
+                    }
+                    variant="outlined"
+                    size="small"
+                  />
+            </Box>
+            <TextField
+                    value={jobTitle}
+                    onChange={(event) => lastNameInputHandler(event)}
+                    autoComplete='off'
+                    multiline
+                    rows={5}
+                    maxRows={7}
+                    label={
+                      <span>
+                        متن کامل نظر
+                        <span className="text-rose-500 text-sm">*</span>
+                      </span>
+                    }
+                    error={notLastNameValidError && true}
+                    helperText={
+                      notLastNameValidError && (
+                        <span className="text-rose-500">
+                          لطفا حداقل چهار کاراکتر وارد نمایید
+                        </span>
+                      )
+                    }
+                    variant="outlined"
+                    size="small"
+                    className="w-full"
+                  />
+                  <Box className="w-full flex-center my-4">
+                  <Button type="submit" variant="contained" className="!text-white w-1/2">ثبت نظر</Button>
+                  </Box>
+          </form>
+          </RtlProvider>
+      }
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
@@ -32,7 +195,7 @@ function OurCustomer() {
           }}
           modules={[Autoplay]}
           className="mySwiper my-12"
-        >
+          >
           <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 1</SwiperSlide>
           <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 2</SwiperSlide>
           <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 3</SwiperSlide>
@@ -50,6 +213,7 @@ function OurCustomer() {
 			</svg>
       </Box>
     </section>
+          </>
   );
 }
 
