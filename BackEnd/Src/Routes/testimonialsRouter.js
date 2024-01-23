@@ -61,6 +61,26 @@ testimonialsRouter.post('/newTestimonial', (req , res) => {
 })
 
 
+// ** Accept Testimonial APi
+testimonialsRouter.put("/accept", (req, res) => {
+    let body = req.body;
+    let TestimonialID = req.headers.authorization;
+    let isAcceptTestimonial = {isShowing : true}
+    TestimonialsModel.findByIdAndUpdate(`${TestimonialID}`, isAcceptTestimonial).then((result) => {
+      res.send(true);
+    });
+  });
+  
+  // ** Reject Testimonial APi
+  testimonialsRouter.put("/reject", (req, res) => {
+    let body = req.body;
+    let TestimonialID = req.headers.authorization;
+    let isRejectTestimonial = {isShowing : false}
+    TestimonialsModel.findByIdAndUpdate(`${TestimonialID}`, isRejectTestimonial).then((result) => {
+      res.send(true);
+    });
+  });
+
 
 
 module.exports = testimonialsRouter;

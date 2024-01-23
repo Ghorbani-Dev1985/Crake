@@ -22,6 +22,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import toast from 'react-hot-toast';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -328,28 +329,16 @@ function Panel() {
       </DrawerHeader>
       <Divider />
       <List>
-        {['مشاهده کاربران', 'ارسال پیام', 'مشاهده پیام ', 'تنظیمات'].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: openDrawer ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                {index % 2 === 0 ? <Inbox /> : <Mail />}
-              </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: openDrawer ? 1 : 0 }} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem>
+        <NavLink to="/panel" className="text-slate-800">
+            کاربران
+        </NavLink>
+        </ListItem>
+        <ListItem>
+        <NavLink to="/testimonial" className="text-slate-800">
+            نظرات
+        </NavLink>
+        </ListItem>
       </List>
 
     </Drawer>

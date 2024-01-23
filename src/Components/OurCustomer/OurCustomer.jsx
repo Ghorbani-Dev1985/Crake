@@ -15,6 +15,7 @@ import { useState } from "react";
 import RtlProvider from "../common/RtlProvider/RtlProvider";
 import useInsert from '../../Hooks/useInsert'
 import useFetch from '../../Hooks/useFetch'
+import toast from "react-hot-toast";
 
 function OurCustomer() {
   const {datas : testimonials} = useFetch("testimonials/all")
@@ -73,11 +74,16 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
       jobTitle,
       text
     }
-    const insert = useInsert("testimonials/newTestimonial" , newTestimonialInfos) 
+    if(firstName && lastName && jobTitle && text){
+       const insert = useInsert("testimonials/newTestimonial" , newTestimonialInfos) 
     setFirstName("")
     setLastName("")
     setJobTitle("")
     setText("")
+    }else{
+      toast.error(" لطفا فرم را تکمیل نمایید")
+    }
+   
   }
   console.log(showTestimonialFilter)
   return (
