@@ -89,7 +89,7 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
   console.log(showTestimonialFilter)
   return (
     <>
-    <section className="bg-[#edf5ff] relative py-25 overflow-hidden">
+    <section className="bg-[#edf5ff] relative py-20 overflow-hidden">
       <Box className="container relative z-10">
         <SectionTitle
           title=" نظر مشتریان "
@@ -228,7 +228,7 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
       
         </Swiper>
       </Box>
-      <Box className="absolute bottom-0 right-0 w-full h-auto left-0">
+      <Box className="absolute -bottom-3 right-0 w-full h-auto left-0">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
 				<path d="M0,70 C30,130 70,50 100,70 L100,100 0,100 Z" fill="#ffffff"></path>
 			</svg>

@@ -21,6 +21,7 @@ module.exports = {
           'products' : 'url("../../assets/Images/product-bg.png")',
           'UserCTAbg' : 'url("../../assets/Images/cta-bg.jpg")',
           'registerFormBg' : 'url("../../assets/Images/registerFormBg.png")',
+          'footer' :  'url("../../assets/Images/footer-shape.png")'
       },
       colors: {
         brown: {
