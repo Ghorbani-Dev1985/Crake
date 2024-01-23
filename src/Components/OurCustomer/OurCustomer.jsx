@@ -13,11 +13,12 @@ import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
 import { useState } from "react";
 import RtlProvider from "../common/RtlProvider/RtlProvider";
+import useInsert from '../../Hooks/useInsert'
+
 
 function OurCustomer() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   const [text , setText] = useState("")
   const [isShowing, setIsShowing] = useState(false);
@@ -25,11 +26,9 @@ function OurCustomer() {
   const [notFirstNameValidError, setFirstNameShowNotValidError] =
   useState(false);
 const [notLastNameValidError, setLastNameShowNotValidError] = useState(false);
-const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
+const [notJobTitleValidError, setJobTitleShowNotValidError] =
   useState(false);
-  const [notUserNameValidError, setUserNameShowNotValidError] =
-  useState(false);
-  const [notPasswordValidError, setPasswordShowNotValidError] =
+  const [notTextValidError, setTextShowNotValidError] =
   useState(false);
   const firstNameInputHandler = (event) => {
     setFirstName(event.target.value);
@@ -48,30 +47,36 @@ const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
       setLastNameShowNotValidError(false);
     }
   };
-  const phoneNumberInputHandler = (event) => {
-    setPhoneNumber(event.target.value);
-    if (phoneNumber.length < 9) {
-      setPhoneNumberShowNotValidError(true);
+  const jobTitleInputHandler = (event) => {
+    setJobTitle(event.target.value);
+    if (jobTitle.length < 2) {
+      setJobTitleShowNotValidError(true);
     } else {
-      setPhoneNumberShowNotValidError(false);
+      setJobTitleShowNotValidError(false);
     }
   };
-  const userNameInputHandler = (event) => {
-    setUserName(event.target.value)
-    if (userName.length < 6) {
-      setUserNameShowNotValidError(true);
+  const textInputHandler = (event) => {
+    setText(event.target.value)
+    if (text.length < 20) {
+      setTextShowNotValidError(true);
     } else {
-      setUserNameShowNotValidError(false);
+      setTextShowNotValidError(false);
     }
   };
- const passwordInputHandler = (event) => {
-  setPassword(event.target.value)
-    if (password.length < 8) {
-      setPasswordShowNotValidError(true);
-    } else {
-      setPasswordShowNotValidError(false);
+  const newTestimonialHandler = (event) => {
+    event.preventDefault()
+    let newTestimonialInfos = {
+      firstName,
+      lastName,
+      jobTitle,
+      text
     }
-  };
+    const insert = useInsert("testimonials/newTestimonial" , newTestimonialInfos) 
+    setFirstName("")
+    setLastName("")
+    setJobTitle("")
+    setText("")
+  }
   return (
     <>
     <section className="bg-[#edf5ff] relative py-25 overflow-hidden">
@@ -91,7 +96,7 @@ const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
         isShowTestimonialFrom &&
         <RtlProvider> 
           {/* Testimonial Form */}
-          <form className='bg-gray-50 p-12 rounded-lg'>
+          <form onSubmit={(event) => newTestimonialHandler(event)} className='bg-gray-50 p-12 rounded-lg'>
             <Box className="w-full flex justify-between items-center mb-6">
           <TextField
                     value={firstName}
@@ -136,7 +141,7 @@ const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
                   />
                     <TextField
                     value={jobTitle}
-                    onChange={(event) => lastNameInputHandler(event)}
+                    onChange={(event) => jobTitleInputHandler(event)}
                     autoComplete='off'
                     label={
                       <span>
@@ -144,11 +149,11 @@ const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
                         <span className="text-rose-500 text-sm">*</span>
                       </span>
                     }
-                    error={notLastNameValidError && true}
+                    error={notJobTitleValidError && true}
                     helperText={
-                      notLastNameValidError && (
+                      notJobTitleValidError && (
                         <span className="text-rose-500">
-                          لطفا حداقل چهار کاراکتر وارد نمایید
+                          لطفا حداقل دو کاراکتر وارد نمایید
                         </span>
                       )
                     }
@@ -157,8 +162,8 @@ const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
                   />
             </Box>
             <TextField
-                    value={jobTitle}
-                    onChange={(event) => lastNameInputHandler(event)}
+                    value={text}
+                    onChange={(event) => textInputHandler(event)}
                     autoComplete='off'
                     multiline
                     rows={5}
@@ -169,11 +174,11 @@ const [notPhoneNumberValidError, setPhoneNumberShowNotValidError] =
                         <span className="text-rose-500 text-sm">*</span>
                       </span>
                     }
-                    error={notLastNameValidError && true}
+                    error={notTextValidError && true}
                     helperText={
-                      notLastNameValidError && (
+                      notTextValidError && (
                         <span className="text-rose-500">
-                          لطفا حداقل چهار کاراکتر وارد نمایید
+                          لطفا حداقل بیست کاراکتر وارد نمایید
                         </span>
                       )
                     }

@@ -34,6 +34,7 @@ let TestimonialsSchema = mongoose.Schema({
   },
   isShowing: {
     type: Boolean,
+    require: true,
   }
 });
 
