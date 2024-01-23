@@ -48,6 +48,7 @@ import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import useFetch from "../../../Hooks/useFetch";
 import useUpdate from "../../../Hooks/useUpdate";
+import useDelete from "../../../Hooks/useDelete";
 import { useShowRealtimeDatas } from "../../../Contexts/ShowRealtimeDatasContext";
 
 const drawerWidth = 240;
@@ -127,7 +128,7 @@ function Panel() {
   const [showDeleteUserDialog, setShowDeleteUserDialog] = useState(false);
   const [showUpdateUserDialog, setShowUpdateUserDialog] = useState(false);
   const [getUsersData, setGetUsersData] = useState(false);
-  const [userID, setUserID] = useState("");
+  const [testimonialID, setTestimonialID] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -245,12 +246,12 @@ function Panel() {
       field: "editAction",
       headerName: "ویرایش",
       width: 60,
-      renderCell: (user) => {
+      renderCell: (testimonial) => {
         return (
           <div
             onClick={() => {
               setShowUpdateUserDialog(true);
-              setUserID(user.id);
+              setTestimonialID(testimonial.id);
             }}
             className="flex-center cursor-pointer text-sky-500"
           >
@@ -263,12 +264,11 @@ function Panel() {
       field: "deleteAction",
       headerName: "حذف",
       width: 60,
-      renderCell: (user) => {
+      renderCell: (testimonial) => {
         return (
           <div
             onClick={() => {
-              setShowDeleteUserDialog(true);
-              setUserID(user.id);
+              userDeleteHandler(testimonial.id);
             }}
             className="flex-center cursor-pointer text-rose-500"
           >
@@ -313,24 +313,21 @@ function Panel() {
     });
   };
 
-  const userDeleteHandler = async () => {
-    await axios
-      .delete("http://localhost:8000/api/users/delete", {
-        headers: {
-          authorization: userID,
-        },
-      })
-      .then((response) => {
-        toast.success("  کاربر مورد نظر با موفقیت حذف گردید");
-        setShowDeleteUserDialog(false);
-        setGetUsersData((prev) => !prev);
-        console.log(response);
-      })
-      .catch((error) => {
-        toast.error(" حذف کاربر انجام نشد");
-        console.log(error);
-      });
-    console.log(userID);
+  const userDeleteHandler = (testimonialID) => {
+    Swal.fire({
+      title: "برای حذف نظر مطمعن هستید؟",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#f43f5e",
+      cancelButtonColor: "#0ea5e9",
+      confirmButtonText: "تایید",
+      cancelButtonText: "انصراف",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const deleteHook = useDelete("testimonials/delete" , testimonialID)
+        setShowRealTimeDatas((prev) => !prev)
+      }
+    });
   };
   const firstNameInputHandler = (event) => {
     setFirstName(event.target.value);
@@ -397,7 +394,7 @@ function Panel() {
       await axios
         .put("http://localhost:8000/api/users/update", userUpdateInfos, {
           headers: {
-            authorization: userID,
+            authorization: testimonialID,
           },
         })
         .then((response) => {
@@ -421,7 +418,7 @@ function Panel() {
   };
   // Show edit user infos in dialog form
   useEffect(() => {
-    let filteredUpdateUser = users.find((user) => user._id === userID);
+    let filteredUpdateUser = users.find((user) => user._id === testimonialID);
     if (filteredUpdateUser) {
       setFirstName(filteredUpdateUser.firstName);
       setLastName(filteredUpdateUser.lastName);
@@ -429,7 +426,7 @@ function Panel() {
       setUserName(filteredUpdateUser.userName);
       setPassword(filteredUpdateUser.password);
     }
-  }, [userID]);
+  }, [testimonialID]);
   return (
     <RtlProvider>
       <Box sx={{ display: "flex" }}>
@@ -507,32 +504,6 @@ function Panel() {
           </Box>
         </Box>
       </Box>
-      {/* Delete User Dialog */}
-      <Dialog
-        open={showDeleteUserDialog}
-        onClose={() => setShowDialog(false)}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {"آیا برای حذف مطمعن هستید؟"}
-        </DialogTitle>
-        <DialogActions>
-          <Button
-            onClick={() => setShowDeleteUserDialog(false)}
-            autoFocus
-            className="!text-zinc-800"
-          >
-            انصراف
-          </Button>
-          <Button
-            onClick={() => userDeleteHandler()}
-            className="!text-rose-500"
-          >
-            تایید
-          </Button>
-        </DialogActions>
-      </Dialog>
       {/* Edit User Dialog */}
       <Dialog
         open={showUpdateUserDialog}

@@ -76,6 +76,7 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
     }
     if(firstName && lastName && jobTitle && text){
        const insert = useInsert("testimonials/newTestimonial" , newTestimonialInfos) 
+       setIsShowTestimonialFrom(false)
     setFirstName("")
     setLastName("")
     setJobTitle("")
