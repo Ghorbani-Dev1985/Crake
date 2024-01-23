@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Box } from "@mui/system";
-import { Button, TextField, TextareaAutosize, Typography } from "@mui/material";
+import { Button, Divider, TextField, TextareaAutosize, Typography } from "@mui/material";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
 import { AttachMoney, ManageAccounts, RateReview, Store } from "@mui/icons-material";
 import AnimateButton from "../common/AnimateButton/AnimateButton";
@@ -14,9 +14,11 @@ import { Autoplay } from "swiper/modules";
 import { useState } from "react";
 import RtlProvider from "../common/RtlProvider/RtlProvider";
 import useInsert from '../../Hooks/useInsert'
-
+import useFetch from '../../Hooks/useFetch'
 
 function OurCustomer() {
+  const {datas : testimonials} = useFetch("testimonials/all")
+  let showTestimonialFilter = testimonials.filter(testimonial => testimonial.isShowing === true)
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [jobTitle, setJobTitle] = useState("");
@@ -77,6 +79,7 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
     setJobTitle("")
     setText("")
   }
+  console.log(showTestimonialFilter)
   return (
     <>
     <section className="bg-[#edf5ff] relative py-25 overflow-hidden">
@@ -201,15 +204,21 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
           modules={[Autoplay]}
           className="mySwiper my-12"
           >
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 1</SwiperSlide>
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 2</SwiperSlide>
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 3</SwiperSlide>
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 4</SwiperSlide>
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 5</SwiperSlide>
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 6</SwiperSlide>
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 7</SwiperSlide>
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 8</SwiperSlide>
-          <SwiperSlide className="bg-emerald-50/90 shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">Slide 9</SwiperSlide>
+            {
+               showTestimonialFilter.map(({_id, firstName , lastName , jobTitle , text}) => {
+                return(
+                  <React.Fragment key={_id}>
+                   <SwiperSlide className="bg-emerald-50/60 flex flex-col p-5 items-center shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">
+                  <p className="font-DanaBold text-xl"> {firstName} {lastName}</p>
+                  <p className="text-secondColor my-3">{jobTitle}</p>
+                  <Divider className="w-full my-3"/>
+                  <p>{text}</p>
+                   </SwiperSlide>
+                  </React.Fragment>
+                )
+               })
+            }
+      
         </Swiper>
       </Box>
       <Box className="absolute bottom-0 right-0 w-full h-auto left-0">
