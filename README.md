@@ -1,49 +1,29 @@
 <p align="center">
   <a href="#">
-    <img alt="Gatsby" src="./src/assets/Images/svgs/app-logo-type.svg" width="100" />
-    <h2 align="center">Golden Coffee | گلدن کافی</h2>
+    <img  src="./src/assets/Images/logo.png" width="100" alt="ghorbani-dev.ir"/>
+    <h2 align="center">Crake |  لندینگ همراه بک اند</h2>
   </a>
 </p>
 
-# Figma Preview
+# Screen Cast
 
-![Anurag Hazra Site Preview](./src/assets/Images/figma/GoldenCoffee-–-Figma.png)
+<video src="https://github.com/Ghorbani-Dev1985/ShopRTLCms/assets/ceake.mp4" autoplay loop ></video>
+
+
 
 ---
 
-Develop with React and TailwindCss in vite
+Develop with ReactJS, Tailwindcss, Mui, NodeJS, MongoDB 
+# Full Stack APP Features
 
-## :rocket: Quick start
-
-**Run the site locally**
-
-_NOTE: The default branch for this repo is `develop`, when you push or pull make sure you specify the correct branch_
-
-### Step 1: Clone The Repo
-
-Fork the repository. then clone the repo locally by doing -
-
-```bash
-git clone https://github.com/Ghorbani-Dev1985/GoldenCoffee.git
-```
-
-### Step 2: Install Dependencies
-
-install all the dependencies
-
-```bash
-npm install
-```
-
-### Step 3: Start Development Server
-
-Then start the development Server
-
-```
-npm run dev
-```
-
-After running the development server the site should be running on https://localhost:port
+<ul>
+<li>A landing page with several animations</li>
+<li>User register for and save data in database</li>
+<li>Testimonial form and save data in database</li>
+<li>Login in panel and show users list and testimonials list</li>
+<li>Edit and delete users in panel</li>
+<li>Accept and reject and delete testimonials</li>
+</ul>
 
 ---
 

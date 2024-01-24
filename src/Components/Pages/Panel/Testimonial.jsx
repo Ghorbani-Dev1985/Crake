@@ -245,24 +245,6 @@ function Panel() {
       },
     },
     {
-      field: "editAction",
-      headerName: "ویرایش",
-      width: 60,
-      renderCell: (testimonial) => {
-        return (
-          <div
-            onClick={() => {
-              setShowUpdateUserDialog(true);
-              setTestimonialID(testimonial.id);
-            }}
-            className="flex-center cursor-pointer text-sky-500"
-          >
-            <Edit />
-          </div>
-        );
-      },
-    },
-    {
       field: "deleteAction",
       headerName: "حذف",
       width: 60,
