@@ -86,7 +86,6 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
     }
    
   }
-  console.log(showTestimonialFilter)
   return (
     <>
     <section className="bg-[#edf5ff] relative py-40 overflow-hidden">
@@ -229,8 +228,8 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
                 )
                })
             }
-      
         </Swiper>
+      
       </Box>
       <Box className="absolute -bottom-3 right-0 w-full h-auto left-0">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">

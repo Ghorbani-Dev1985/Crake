@@ -9,7 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import {Menu , ChevronLeft , ChevronRight , Inbox , Mail , Edit , DeleteOutlineOutlined, Person, PhoneAndroid, AccountCircle, VisibilityOff, Visibility} from '@mui/icons-material';
+import {Menu , ChevronLeft , ChevronRight , Inbox , Mail , Edit , DeleteOutlineOutlined, Person, PhoneAndroid, AccountCircle, VisibilityOff, Visibility, PeopleAlt, Comment} from '@mui/icons-material';
 import { Button, DialogContent, InputAdornment, ListItem, Slide, TextField } from '@mui/material';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -23,6 +23,11 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
+import useFetch from '../../../Hooks/useFetch';
+import useDelete from '../../../Hooks/useDelete';
+import Swal from "sweetalert2";
+import { useShowRealtimeDatas } from '../../../Contexts/ShowRealtimeDatasContext';
+import useUpdate from '../../../Hooks/useUpdate';
 
 const drawerWidth = 240;
 
@@ -95,9 +100,9 @@ const openedMixin = (theme) => ({
 function Panel() {
     const theme = useTheme();
   const [openDrawer, setOpenDrawer] = useState(true);
-  const [users , setUsers] = useState([]);
   const [showDeleteUserDialog, setShowDeleteUserDialog] = useState(false);
   const [showUpdateUserDialog, setShowUpdateUserDialog] = useState(false);
+  const { showRealtimeDatas, setShowRealTimeDatas } = useShowRealtimeDatas();
   const [getUsersData , setGetUsersData] = useState(false)
   const [userID , setUserID] = useState('')
   const [showPassword, setShowPassword] = useState(false);
@@ -162,7 +167,7 @@ function Panel() {
       return (
           <div onClick={() => {
             setShowUpdateUserDialog(true)
-            setUserID(user.id)
+            setUserID(user.row._id)
           }} className="flex-center cursor-pointer text-sky-500">
               <Edit />
            </div>
@@ -175,8 +180,7 @@ function Panel() {
     renderCell: (user) => {
       return (
           <div onClick={() => {
-            setShowDeleteUserDialog(true)
-            setUserID(user.id)
+            userDeleteHandler(user.row._id)
           }} className="flex-center cursor-pointer text-rose-500">
               <DeleteOutlineOutlined />
            </div>
@@ -184,24 +188,22 @@ function Panel() {
    }
   },
   ];
-  const userDeleteHandler = async () => {
-   await axios
-    .delete('http://localhost:8000/api/users/delete' , {
-      headers: {
-        authorization: userID,
-      },
-    })
-    .then(response => {
-      toast.success("  کاربر مورد نظر با موفقیت حذف گردید");
-      setShowDeleteUserDialog(false)
-      setGetUsersData(prev => !prev)
-      console.log(response)
-    })
-    .catch((error) => {
-      toast.error(" حذف کاربر انجام نشد");
-      console.log(error);
-    });
+  const userDeleteHandler = (userID) => {
     console.log(userID)
+    Swal.fire({
+      title: "برای حذف نظر مطمعن هستید؟",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#f43f5e",
+      cancelButtonColor: "#0ea5e9",
+      confirmButtonText: "تایید",
+      cancelButtonText: "انصراف",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const deleteHook = useDelete("users/delete" , userID)
+        setShowRealTimeDatas((prev) => !prev)
+      }
+    });
   }
   const firstNameInputHandler = (event) => {
     setFirstName(event.target.value);
@@ -245,46 +247,31 @@ function Panel() {
     }
   };
   
-  const userUpdateHandler = async () => {
-    let userUpdateInfos = JSON.stringify({
+  console.log(phoneNumber.length)
+  const userUpdateHandler = () => {
+    let userUpdateInfos ={
       firstName,
       lastName,
       phoneNumber,
       userName,
       password,
-    });
-    if (firstName && lastName && userName && phoneNumber && password && firstName.length > 3 && lastName.length > 3 && phoneNumber.length > 9 && userName.length > 6 && password.length > 8) {
- await axios
-    .put('http://localhost:8000/api/users/update' , userUpdateInfos , {
-      headers: {
-        authorization: userID,
-      }
-    })
-    .then(response => {
-      toast.success("  کاربر مورد نظر با موفقیت ویرایش گردید");
+    };
+    if (firstName && lastName && userName && phoneNumber && password && firstName.length >= 3 && lastName.length >= 3 && userName.length >= 6 && password.length >= 8) {
+      const Update = useUpdate("users/update" , userUpdateInfos ,userID)
+      setShowRealTimeDatas((prev) => !prev)
       setShowUpdateUserDialog(false)
-      setGetUsersData(prev => !prev)
       setFirstName('')
           setLastName('')
           setPhoneNumber('')
           setUserName('')
           setPassword('')
-      console.log(response)
-    })
-    .catch((error) => {
-      toast.error(" ویرایش کاربر انجام نشد");
-      console.log(error);
-    });
+
     }else{
       toast.error("لطفا فرم را تکمیل نمایید");
     }
    
   }
-  useEffect(() => {
-  axios
-   .get('http://localhost:8000/api/users/all')
-   .then(response => setUsers(response.data))
-  }, [getUsersData]);
+  const { datas: users } = useFetch("users/all");
   // Show edit user infos in dialog form
   useEffect(() => {
     let filteredUpdateUser = users.find(user => user._id === userID)
@@ -330,12 +317,14 @@ function Panel() {
       <Divider />
       <List>
         <ListItem>
-        <NavLink to="/panel" className="text-slate-800">
+        <NavLink to="/panel" className="text-slate-800 flex-center gap-3">
+          <PeopleAlt />
             کاربران
         </NavLink>
         </ListItem>
         <ListItem>
-        <NavLink to="/testimonial" className="text-slate-800">
+        <NavLink to="/testimonial" className="text-slate-800 flex-center gap-3">
+          <Comment />
             نظرات
         </NavLink>
         </ListItem>
@@ -345,7 +334,7 @@ function Panel() {
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
       <DrawerHeader />
       <Typography variant='span' className='block !font-MorabbaBold !text-3xl !my-4'>لیست کاربران</Typography>
-      <Box sx={{ height: 400, width: '100%' }}>
+      <Box sx={{ width: '100%' }}>
       <DataGrid
          rows={users.map((user,index)=>{return {id:index+1,...user}})}
         getRowId={(row) => row._id}
@@ -462,11 +451,7 @@ function Panel() {
                     maxLength: 10,
                     type: 'number',
                 }}
-                  onInput={(e) => {
-                    e.target.value = Math.max(0, parseInt(e.target.value))
-                      .toString()
-                      .slice(0, e.target.maxLength);
-                  }}
+               
                   onChange={(event) => phoneNumberInputHandler(event)}
                   autoComplete='off'
                   label={

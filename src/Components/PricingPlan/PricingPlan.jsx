@@ -36,8 +36,8 @@ const PricingPlanBox = ({icon , price , planName , disableOne , disableTwo , dis
   return (
     <Box className="bg-white relative shadow-ring flex flex-col gap-12 rounded-md top-0 hover:-top-3 transition-all ease-linear duration-300 items-center py-20">
       <Box className="w-full group">
-      <p className="flex-center size-16 bg-white shadow-ring text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors rounded-full absolute -top-8 right-0 left-0 mx-auto">{icon}</p>
-      <p className="space-y-2 text-center"><span className="font-DanaBold text-3xl ml-1 group-hover:text-mainColor">{price}</span><p>هزار تومان / ماهانه</p></p>
+      <div className="flex-center size-16 bg-white shadow-ring text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors rounded-full absolute -top-8 right-0 left-0 mx-auto">{icon}</div>
+      <div className="space-y-2 text-center"><span className="font-DanaBold text-3xl ml-1 group-hover:text-mainColor">{price}</span><p>هزار تومان / ماهانه</p></div>
       <div className="relative w-full z-10 my-3 after:content-[''] after:block after:w-full after:absolute after:top-1/2 after:h-px after:bg-mainColor group-hover:after:bg-amber-500 after:-z-10">
       <p className={`${planNameBtnColor} group-hover:bg-amber-500 w-1/2 mx-auto py-2 text-center font-MorabbaBold text-2xl rounded-md text-white relative z-10`}>{planName}</p>
       </div>
