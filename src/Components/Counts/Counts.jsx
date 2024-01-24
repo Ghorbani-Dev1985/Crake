@@ -25,7 +25,7 @@ export default Counts
 const CountBox = ({icon , number , subtitle}) => {
     return(
        <Box className="flex flex-col gap-10 items-center border border-gray-200 border-solid rounded-lg p-4 shadow-countBox lg:shadow-md hover:shadow-countBox group transition-colors">
-       <Typography className='flex-center size-20 bg-emerald-50 group-hover:bg-mainColor group-hover:text-mainColor text-mainColor rounded-full transition-colors'>
+       <Typography className='flex-center size-20 bg-emerald-50 group-hover:bg-mainColor group-hover:text-white group-hover:text-mainColor text-mainColor rounded-full transition-colors'>
                  {icon} 
            </Typography>
            <CountUp start={0}  duration={2.75} end={number} className='font-DanaBold text-4xl'/>
