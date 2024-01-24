@@ -107,7 +107,7 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
         <RtlProvider> 
           {/* Testimonial Form */}
           <form onSubmit={(event) => newTestimonialHandler(event)} className='bg-gray-50 p-12 rounded-lg'>
-            <Box className="w-full flex justify-between items-center mb-6">
+            <Box className="w-full flex flex-col gap-5 lg:gap-0 md:flex-row md:justify-between items-center mb-6">
           <TextField
                     value={firstName}
                     onChange={(event) => firstNameInputHandler(event)}
@@ -204,6 +204,10 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
       }
         <Swiper
           slidesPerView={3}
+          breakpoints={{
+            320: { slidesPerView: 1 },
+            768: { slidesPerView: 3 },
+          }}
           spaceBetween={30}
           autoplay={{
             delay: 2500,
