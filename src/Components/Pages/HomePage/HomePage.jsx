@@ -1,4 +1,3 @@
-import React from "react";
 import OurFeatures from "../../OurFeatures/OurFeatures";
 import PanelServices from "../../PanelServices/PanelServices";
 import MoreFeatures from "../../MoreFeatures/MoreFeatures";

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Logo from "./../../assets/Images/logo.png";
-import ShapeOne from "./../../assets/Images/shape1.png";
-import ShapeTwo from "./../../assets/Images/shape2.png";
-import ShapeThree from "./../../assets/Images/shape3.png";
-import ShapeFour from "./../../assets/Images/shape4.png";
-import MainImage from "./../../assets/Images/main-image.png";
+import Logo from "../../assets/Images/logo.png";
+import ShapeOne from "../../assets/Images/shape1.png";
+import ShapeTwo from "../../assets/Images/shape2.png";
+import ShapeThree from "../../assets/Images/shape3.png";
+import ShapeFour from "../../assets/Images/shape4.png";
+import MainImage from "../../assets/Images/main-image.png";
 import { Link } from "react-router-dom";
 import {
   HiOutlineShoppingCart,
@@ -22,13 +22,13 @@ import {
   BiMenuAltRight,
 } from "react-icons/bi";
 import MobileNav from "./MobileNav";
-import { Box, Drawer, SwipeableDrawer } from "@mui/material";
+import { Box, Drawer } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
 import AnimateButton from "../common/AnimateButton/AnimateButton";
 import RtlProvider from "../common/RtlProvider/RtlProvider";
 
-function Header(props) {
+function Header() {
   return (
     <>
       {/* Logo & Nav - Mobile */}

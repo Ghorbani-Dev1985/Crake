@@ -1,9 +1,8 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { Box } from "@mui/system";
-import { Button, Divider, TextField, TextareaAutosize, Typography } from "@mui/material";
+import { Button, Divider, TextField } from "@mui/material";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
-import { AttachMoney, ManageAccounts, RateReview, Store } from "@mui/icons-material";
+import { RateReview } from "@mui/icons-material";
 import AnimateButton from "../common/AnimateButton/AnimateButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -11,7 +10,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import required modules
 import { Autoplay } from "swiper/modules";
-import { useState } from "react";
 import RtlProvider from "../common/RtlProvider/RtlProvider";
 import useInsert from '../../Hooks/useInsert'
 import useFetch from '../../Hooks/useFetch'

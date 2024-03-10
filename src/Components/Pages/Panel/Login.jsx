@@ -14,7 +14,7 @@ function Login() {
     const [password , setPassword] = useState();
     const LoginHandler = (event) => {
         event.preventDefault()
-        if(userName === 'admin' , password === 'admin'){3
+        if(userName === 'admin' , password === 'admin'){
             toast.success("ورود با موفقیت انجام شد");
             navigate('/panel')
         }else{

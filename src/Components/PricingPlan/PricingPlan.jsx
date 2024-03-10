@@ -1,8 +1,5 @@
 import React from "react";
-
-
 import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
 import SectionTitle from "../common/SectionTitle/SectionTitle";
 import { AttachMoney, ManageAccounts, Store } from "@mui/icons-material";
 import AnimateButton from "../common/AnimateButton/AnimateButton";

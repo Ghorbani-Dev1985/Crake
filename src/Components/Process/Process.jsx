@@ -1,6 +1,5 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import React from 'react'
-import AnimateButton from '../common/AnimateButton/AnimateButton'
 import SectionTitle from '../common/SectionTitle/SectionTitle'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CodeIcon from '@mui/icons-material/Code';

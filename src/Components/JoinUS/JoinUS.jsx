@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import JoinUSImg from "./../../assets/Images/3.png"
+import JoinUSImg from "../../assets/Images/3.png"
 import AnimateButton from '../common/AnimateButton/AnimateButton'
 
 function JoinUS() {

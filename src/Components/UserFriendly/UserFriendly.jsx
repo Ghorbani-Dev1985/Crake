@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import UserFriendlyImg from "./../../assets/Images/features-img2.png"
+import UserFriendlyImg from "../../assets/Images/features-img2.png"
 import AnimateButton from '../common/AnimateButton/AnimateButton'
 
 function JoinUS() {

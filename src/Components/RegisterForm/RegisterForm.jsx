@@ -16,7 +16,7 @@ import {
   PhoneAndroid,
   Person,
 } from "@mui/icons-material";
-import RtlProvider from "./../common/RtlProvider/RtlProvider";
+import RtlProvider from "../common/RtlProvider/RtlProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 
