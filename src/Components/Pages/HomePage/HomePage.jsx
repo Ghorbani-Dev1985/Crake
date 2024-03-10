@@ -11,11 +11,14 @@ import UserFriendly from '../../UserFriendly/UserFriendly'
 import Process from "../../Process/Process";
 import PricingPlan from "../../PricingPlan/PricingPlan";
 import OurCustomer from "../../OurCustomer/OurCustomer";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
 
 
 function HomePage() {
   return (
     <>
+     <Header />
       <OurFeatures />
         <PanelServices />
     <MoreFeatures />
@@ -28,6 +31,7 @@ function HomePage() {
     <PricingPlan />
     <RegisterForm />
     <OurCustomer />
+    <Footer />
     </>
   );
 }

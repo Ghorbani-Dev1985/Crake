@@ -44,13 +44,13 @@ function RegisterForm() {
   };
   const registerHandler = async (event) => {
     event.preventDefault();
-    let newUserInfos = JSON.stringify({
+    let newUserInfos = {
       firstName,
       lastName,
       phoneNumber,
       userName,
       password,
-    });
+    };
     console.log(newUserInfos);
     if (firstName && lastName && userName && phoneNumber && password && firstName.length > 3 && lastName.length > 3 && phoneNumber.length > 9 && userName.length > 6 && password.length > 8) {
       await axios

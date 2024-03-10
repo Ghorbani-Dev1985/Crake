@@ -217,14 +217,12 @@ const [notJobTitleValidError, setJobTitleShowNotValidError] =
             {
                showTestimonialFilter.map(({_id, firstName , lastName , jobTitle , text}) => {
                 return(
-                  <React.Fragment key={_id}>
-                   <SwiperSlide className="bg-emerald-50/60 flex flex-col p-5 items-center shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">
+                   <SwiperSlide key={_id} className="bg-emerald-50/60 flex flex-col p-5 items-center shadow-ring rounded-md border-0 border-b-4 border-mainColor border-solid min-h-60">
                   <p className="font-DanaBold text-xl"> {firstName} {lastName}</p>
                   <p className="text-secondColor my-3">{jobTitle}</p>
                   <Divider className="w-full my-3"/>
                   <p>{text}</p>
                    </SwiperSlide>
-                  </React.Fragment>
                 )
                })
             }
