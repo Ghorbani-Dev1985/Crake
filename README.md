@@ -31,11 +31,13 @@ Develop with ReactJS, Tailwindcss, Mui, NodeJS, MongoDB
 
 # APP Link
 
-[sabzlearn.ghorbani-dev.ir](https://crake.ghorbani-dev.ir/)
+
+[crake.ghorbani-dev.ir](https://crake.ghorbani-dev.ir/)
 
 ---
 # ADMIN DASHBOARD Link
-[sabzlearn.ghorbani-dev.ir/adminDashboard/login](https://crake.ghorbani-dev.ir/login)
+
+[crake.ghorbani-dev.ir/login](https://crake.ghorbani-dev.ir/login)
 
 Username: admin
 <br />
